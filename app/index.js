@@ -8,14 +8,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 
-// import rootReducer from './reducers/index';
+import rootReducer from './reducers/index';
 import styles  from './assets/styles/main';
 import AppContainer from './containers/AppContainer';
 
 const history = createHistory();
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const middleware = routerMiddleware(history);
-const store = createStore(/* rootReducer,*/ devTools, applyMiddleware(middleware, logger, thunk));
+const store = createStore(rootReducer, devTools, applyMiddleware(middleware, logger, thunk));
 
 const router = (
   <Provider store={ store }>
