@@ -10,7 +10,7 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 
 // import rootReducer from './reducers/index';
 import styles  from './assets/styles/main';
-import App from './components/App';
+import AppContainer from './containers/AppContainer';
 
 const history = createHistory();
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
@@ -20,7 +20,7 @@ const store = createStore(/* rootReducer,*/ devTools, applyMiddleware(middleware
 const router = (
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
-      <Route path='/' component={ App } />
+      <Route path='/' component={ AppContainer } />
     </ConnectedRouter>
   </Provider>
 );
