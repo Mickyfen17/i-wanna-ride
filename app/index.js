@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 
 // import rootReducer from './reducers/index';
-// import styles  from './assets/styles/main';
+import styles  from './assets/styles/main';
 import App from './components/App';
 
 const history = createHistory();
