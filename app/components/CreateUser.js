@@ -31,7 +31,7 @@ export default class CreateUser extends Component  {
         <article className='create-user-card'>
           <h1>Create User</h1>
           <input
-            className='create-user-input firstname'
+            className='user-input firstname'
             placeholder='First Name'
             type='text'
             value={ this.state.firstname }
@@ -39,7 +39,7 @@ export default class CreateUser extends Component  {
             onChange={ e => this.handleUserInput(e) }
           />
           <input
-            className='create-user-input lastname'
+            className='user-input lastname'
             placeholder='Last Name'
             type='text'
             value={ this.state.lastname }
@@ -47,7 +47,7 @@ export default class CreateUser extends Component  {
             onChange={ e => this.handleUserInput(e) }
           />
           <input
-            className='create-user-input'
+            className='user-input'
             placeholder='Location'
             type='text'
             value={ this.state.location }
@@ -55,7 +55,7 @@ export default class CreateUser extends Component  {
             onChange={ e => this.handleUserInput(e) }
           />
           <input
-            className='create-user-input'
+            className='user-input'
             placeholder='Experience'
             type='text'
             value={ this.state.experience }
@@ -63,7 +63,7 @@ export default class CreateUser extends Component  {
             onChange={ e => this.handleUserInput(e) }
           />
           <input
-            className='create-user-input'
+            className='user-input'
             placeholder='Email'
             type='text'
             value={ this.state.email }
@@ -71,7 +71,7 @@ export default class CreateUser extends Component  {
             onChange={ e => this.handleUserInput(e) }
           />
           <input
-            className='create-user-input'
+            className='user-input'
             placeholder='Username'
             type='text'
             value={ this.state.username }
@@ -79,14 +79,14 @@ export default class CreateUser extends Component  {
             onChange={ e => this.handleUserInput(e) }
           />
           <input
-            className='create-user-input'
+            className='user-input'
             placeholder='Password'
             type='password'
             value={ this.state.password }
             name='password'
             onChange={ e => this.handleUserInput(e) }
           />
-          <button className='create-user-button'>Submit</button>
+          <button className='submit-button'>Submit</button>
         </article>
       </div>
     );

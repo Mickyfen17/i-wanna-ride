@@ -1,19 +1,8 @@
-h1 {
-  color: #FFF;
-  text-align: center;
-}
-
 .login-card {
   width: 90%;
   margin: 0 auto;
-  .login-input {
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-    border: none;
-  }
-  .login-button {
-    width: 100%;
+  h1 {
+    @include form-header;
   }
   .create-user-link {
     display: block;

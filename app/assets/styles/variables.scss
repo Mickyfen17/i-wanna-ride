@@ -8,3 +8,15 @@ $cog-animation: spin 10000ms linear infinite;
   from { -webkit-transform: rotate(0deg); }
   to { -webkit-transform: rotate(360deg); }
 }
+
+@mixin form-header {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  height: 60px;
+  border: 1px solid grey;
+  text-align: left;
+  color: #FFF;
+  font-size: 1.5em;
+  box-sizing: border-box;
+}
