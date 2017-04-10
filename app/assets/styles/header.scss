@@ -1,11 +1,13 @@
 @import 'variables';
 
 .header-title {
+  display: block;
   padding: 15px 0;
   text-align: center;
   font-size: 2em;
   color: #fff;
-  font-family: $main-header-font;
+  font-family: "Permanent Marker", cursive;
+  text-decoration: none;
   &:after {
     display: inline-block;
     content: "";
