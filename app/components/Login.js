@@ -1,15 +1,51 @@
 import React, { Component } from 'react';
 
 
-const Login = () =>  {
-  return (
-    <article className='login-card'>
-      <h1>Login</h1>
-      <input className='login-input' type="text" />
-      <input className='login-input' type="password" />
-      <button className='login-button'>Login</button>
-    </article>
-  );
-};
+export default class Login extends Component  {
+  constructor() {
+    super();
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
 
-export default Login;
+  handleUserInput(e) {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+  handleUserSubmit() {
+    this.setState({
+      username: '',
+      password: '',
+    });
+  }
+  render() {
+    return (
+      <article className='login-card'>
+        <h1>Login</h1>
+        <input
+          className='login-input'
+          type='text'
+          value={ this.state.username }
+          name='username'
+          onChange={ e => this.handleUserInput(e) }
+        />
+        <input
+          className='login-input'
+          type='password'
+          value={ this.state.password }
+          name='password'
+          onChange={ e => this.handleUserInput(e) }
+        />
+        <button
+          className='login-button'
+          onClick={ () => this.handleUserSubmit() } >
+          Login
+        </button>
+      </article>
+    );
+  }
+}
