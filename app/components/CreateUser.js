@@ -28,63 +28,66 @@ export default class CreateUser extends Component  {
     return (
       <div>
         <Header />
-        <h1>Create User</h1>
-        <input
-          className='create-user-input'
-          placeholder='First Name'
-          type='text'
-          value={ this.state.firstname }
-          name='firstname'
-          onChange={ e => this.handleUserInput(e) }
-        />
-        <input
-          className='create-user-input'
-          placeholder='Last Name'
-          type='text'
-          value={ this.state.lastname }
-          name='lastname'
-          onChange={ e => this.handleUserInput(e) }
-        />
-        <input
-          className='create-user-input'
-          placeholder='Location'
-          type='text'
-          value={ this.state.location }
-          name='location'
-          onChange={ e => this.handleUserInput(e) }
-        />
-        <input
-          className='create-user-input'
-          placeholder='Experience'
-          type='text'
-          value={ this.state.experience }
-          name='experience'
-          onChange={ e => this.handleUserInput(e) }
-        />
-        <input
-          className='create-user-input'
-          placeholder='Email'
-          type='text'
-          value={ this.state.email }
-          name='email'
-          onChange={ e => this.handleUserInput(e) }
-        />
-        <input
-          className='create-user-input'
-          placeholder='Username'
-          type='text'
-          value={ this.state.username }
-          name='username'
-          onChange={ e => this.handleUserInput(e) }
-        />
-        <input
-          className='create-user-input'
-          placeholder='Password'
-          type='password'
-          value={ this.state.password }
-          name='password'
-          onChange={ e => this.handleUserInput(e) }
-        />
+        <article className='create-user-card'>
+          <h1>Create User</h1>
+          <input
+            className='create-user-input firstname'
+            placeholder='First Name'
+            type='text'
+            value={ this.state.firstname }
+            name='firstname'
+            onChange={ e => this.handleUserInput(e) }
+          />
+          <input
+            className='create-user-input lastname'
+            placeholder='Last Name'
+            type='text'
+            value={ this.state.lastname }
+            name='lastname'
+            onChange={ e => this.handleUserInput(e) }
+          />
+          <input
+            className='create-user-input'
+            placeholder='Location'
+            type='text'
+            value={ this.state.location }
+            name='location'
+            onChange={ e => this.handleUserInput(e) }
+          />
+          <input
+            className='create-user-input'
+            placeholder='Experience'
+            type='text'
+            value={ this.state.experience }
+            name='experience'
+            onChange={ e => this.handleUserInput(e) }
+          />
+          <input
+            className='create-user-input'
+            placeholder='Email'
+            type='text'
+            value={ this.state.email }
+            name='email'
+            onChange={ e => this.handleUserInput(e) }
+          />
+          <input
+            className='create-user-input'
+            placeholder='Username'
+            type='text'
+            value={ this.state.username }
+            name='username'
+            onChange={ e => this.handleUserInput(e) }
+          />
+          <input
+            className='create-user-input'
+            placeholder='Password'
+            type='password'
+            value={ this.state.password }
+            name='password'
+            onChange={ e => this.handleUserInput(e) }
+          />
+          <button className='create-user-button'>Submit</button>
+        </article>
       </div>
     );
   }
