@@ -49,7 +49,7 @@ export default class Login extends Component  {
             onClick={ () => this.handleUserSubmit() } >
             Login
           </button>
-          <Link to={ '/create-user' } >
+          <Link to={ '/create-user' } className='create-user-link' >
             Create New User
           </Link>
         </article>
