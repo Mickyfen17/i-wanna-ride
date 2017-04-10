@@ -5,9 +5,13 @@ CREATE DATABASE users;
 
 CREATE TABLE users (
   id SERIAL NOT NULL PRIMARY KEY,
-  name VARCHAR (123) NOT NULL,
-  password VARCHAR (123) NOT NULL,
-  email VARCHAR (123) NOT NULL
+  first_name VARCHAR (123) NOT NULL,
+  last_name VARCHAR (123) NOT NULL,
+  location VARCHAR (123) NOT NULL,
+  experience VARCHAR (123) NOT NULL,
+  username VARCHAR (123) NOT NULL,
+  email VARCHAR (123) NOT NULL,
+  password VARCHAR (123) NOT NULL
 );
 
 -- CREATE TABLE favorites (
@@ -24,5 +28,5 @@ CREATE TABLE users (
 CREATE UNIQUE INDEX email ON users (email);
 
 
-INSERT INTO users (name, password, email)
-  VALUES ('Mike', 'password', 'abc@abc.com');
+INSERT INTO users (first_name, last_name, location, experience, username, password, email)
+  VALUES ('Mike', 'Fenwick', 'Denver', 'Intermediate', 'mikefen', 'password', 'abc@abc.com');
