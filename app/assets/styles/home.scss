@@ -1,0 +1,57 @@
+@import 'variables';
+
+.home-page-header {
+  padding: 35px 0;
+  text-align: center;
+  font-size: 2.6em;
+  color: #fff;
+  font-family: $main-header-font;
+  font-variant: small-caps;
+  transform: rotate(-7deg);
+  &:after {
+    display: inline-block;
+    content: "";
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+    background-image: url(../images/bike_cog.svg);
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    animation: $cog-animation;
+    -webkit-animation: $cog-animation;
+  }
+}
+
+//cog animation
+@-webkit-keyframes spin {
+  @include cog-spin-keyframe;
+}
+@keyframes spin {
+  @include cog-spin-keyframe;
+}
+
+.home-page-caption {
+  padding: 20px 0;
+  text-align: center;
+  color: #FFF;
+  font-family: $main-header-font;
+}
+
+.home-page-button {
+  display: block;
+  margin: 20px auto;
+  height: 50px;
+  width: 200px;
+  background: #FFF;
+  color: #000;
+  font-family: $main-header-font;
+  border: 4px solid #FFF;
+  font-size: 1.2em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 500ms;
+  &:hover {
+    background: transparent;
+    color: #FFF;
+  }
+}
