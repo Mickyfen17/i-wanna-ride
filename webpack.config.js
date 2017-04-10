@@ -1,17 +1,23 @@
+const path = require('path');
+
 module.exports = {
+  devtool: '#source-map',
+  context: __dirname,
   entry: [
     './app/index.js',
   ],
   output: {
     path: __dirname,
     filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        loader: 'babel-loader',
+        include: path.join(__dirname, 'app'),
+        exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react'],
         },
