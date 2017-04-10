@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Header from './Header';
-
 
 export default class Login extends Component  {
   constructor() {
@@ -49,6 +49,9 @@ export default class Login extends Component  {
             onClick={ () => this.handleUserSubmit() } >
             Login
           </button>
+          <Link to={ '/create-user' } >
+            Create New User
+          </Link>
         </article>
       </div>
     );
