@@ -4,8 +4,9 @@
   "description": "Personal project for Module 3 at Turing School",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot",
-    "build": "webpack",
+    "start": "npm build && node src/app.js",
+    "build": "webpack --config ./webpack.config.js",
+    "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
     "test": "jest"
   },
   "repository": {
@@ -44,10 +45,17 @@
     "style-loader": "^0.13.1",
     "svg-url-loader": "^2.0.2",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.3"
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-dev-server": "^1.16.3",
+    "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-cors": "0.0.3",
     "history": "^4.6.1",
+    "pg-promise": "^5.6.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-modal": "^1.7.3",
