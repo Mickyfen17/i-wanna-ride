@@ -21,13 +21,8 @@ export default class Login extends Component  {
   }
   handleUserSubmit() {
     const { username, password } = this.state;
-    console.log(this.props);
-    const { userSignIn } = this.props;
-    fetch('http://localhost:3000/api/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
-    })
+    const { userSignIn, signInFetch } = this.props;
+    signInFetch(username, password)
     .then((response) => {
       if(!response.ok) {
         this.setState({
