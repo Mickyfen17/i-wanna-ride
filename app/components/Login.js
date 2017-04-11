@@ -66,6 +66,7 @@ export default class Login extends Component  {
             onClick={ () => this.handleUserSubmit() } >
             Login
           </button>
+          { this.state.error !== '' && <h4>{ this.state.error }</h4> }
           <Link to={ '/create-user' } className='create-user-link' >
             Create New User
           </Link>
