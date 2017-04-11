@@ -9,6 +9,7 @@ export default class Login extends Component  {
     this.state = {
       username: '',
       password: '',
+      error: '',
     };
   }
 
@@ -19,11 +20,25 @@ export default class Login extends Component  {
     });
   }
   handleUserSubmit() {
-    this.setState({
-      username: '',
-      password: '',
+    const { username, password } = this.state;
+    const { userSignIn, signInFetch } = this.props;
+    signInFetch(username, password)
+    .then((response) => {
+      if(!response.ok) {
+        this.setState({
+          username: '',
+          password: '',
+          error: 'Email or password is incorrect',
+        });
+      } else {
+        response.json()
+        .then((json) => {
+          userSignIn(json.data);
+        });
+      }
     });
   }
+
   render() {
     return (
       <div>
@@ -51,6 +66,7 @@ export default class Login extends Component  {
             onClick={ () => this.handleUserSubmit() } >
             Login
           </button>
+          { this.state.error !== '' && <h4>{ this.state.error }</h4> }
           <Link to={ '/create-user' } className='create-user-link' >
             Create New User
           </Link>
