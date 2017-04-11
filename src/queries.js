@@ -12,25 +12,27 @@ const db = pgp(connectionString);
 // add query functions
 function getAllUsers(req, res, next) {
   db.any('select * from users')
-    .then((data) => {
-      res.status(200).json({
-        status: 'success',
-        data: data,
-        message: 'Retrieved All Users',
-      });
-    }).catch((err) => {
-      return next(err);
+  .then((data) => {
+    res.status(200)
+    .json({
+      status: 'success',
+      data: data,
+      message: 'Retrieved All Users',
+    });
+  })
+  .catch((err) => {
+    return next(err);
   });
 }
 
 function signIn(req, res, next) {
   db.one('select * from users where username=${username} and password=${password}', req.body)
   .then((data) => {
-  res.status(200)
+    res.status(200)
     .json({
       status: 'success',
       data: data,
-      message: 'Retrieved ONE User'
+      message: 'Retrieved ONE User',
     });
   })
   .catch((err) => {
@@ -40,15 +42,26 @@ function signIn(req, res, next) {
 
 function createUser(req, res, next) {
   req.body.email = req.body.email.toLowerCase();
-  db.one('insert into users(name, password, email)' + 'values(${name}, ${password}, ${email}) returning id', req.body).then((data) => {
-    res.status(200).json({ status: 'success', message: "New user created", id: data.id});
-  }).catch((err) => {
-    res.status(500).json({error: err.detail});
+  db.one('insert into users(firstname, lastname, location, experience, username, email, password)' +
+  'values(${firstname}, ${lastname}, ${location}, ${experience}, ${username}, ${email}, ${password}) returning id', req.body)
+  .then((data) => {
+    res.status(200)
+    .json({
+      status: 'success',
+      id: data.id,
+      message: 'New user created',
+    });
   })
+  .catch((err) => {
+    res.status(500)
+    .json({
+      error: err.detail,
+    });
+  });
 }
 
 module.exports = {
-  getAllUsers: getAllUsers,
-  signIn: signIn,
-  createUser: createUser,
+  getAllUsers,
+  signIn,
+  createUser,
 };
