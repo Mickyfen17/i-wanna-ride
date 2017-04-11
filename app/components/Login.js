@@ -9,6 +9,7 @@ export default class Login extends Component  {
     this.state = {
       username: '',
       password: '',
+      error: '',
     };
   }
 
@@ -19,11 +20,30 @@ export default class Login extends Component  {
     });
   }
   handleUserSubmit() {
-    this.setState({
-      username: '',
-      password: '',
+    const { username, password } = this.state;
+    console.log(this.props);
+    const { userSignIn } = this.props;
+    fetch('http://localhost:3000/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    })
+    .then((response) => {
+      if(!response.ok) {
+        this.setState({
+          username: '',
+          password: '',
+          error: 'Email or password is incorrect',
+        });
+      } else {
+        response.json()
+        .then((json) => {
+          userSignIn(json.data);
+        });
+      }
     });
   }
+
   render() {
     return (
       <div>
