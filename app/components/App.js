@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import Home from './Home';
 import LoginContainer from '../containers/LoginContainer';
 import CreateUserContainer from '../containers/CreateUserContainer';
-import Dashboard from '../components/Dashboard';
+import Dashboard from './Dashboard';
 
 export default class App extends Component {
 
