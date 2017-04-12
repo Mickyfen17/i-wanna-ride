@@ -11,12 +11,14 @@ export default class CreateUser extends Component  {
       firstname: '',
       lastname: '',
       location: '',
-      experience: '',
+      experience: 'beginner',
       email: '',
       username: '',
       password: '',
     };
     this.handleUserInput = this.handleUserInput.bind(this);
+    this.handleExperience = this.handleExperience.bind(this);
+    this.handleUserCreate = this.handleUserCreate.bind(this);
   }
 
   handleUserInput(e) {
@@ -25,7 +27,6 @@ export default class CreateUser extends Component  {
       [name]: value,
     });
   }
-
   handleUserCreate() {
     const { createNewUserFetch } = this.props;
     const { firstname, lastname, location, experience, email, username, password } = this.state;
@@ -37,6 +38,10 @@ export default class CreateUser extends Component  {
     .then((data) => {
       console.log(data);
     });
+  }
+  handleExperience(e) {
+    const { value } = e.target;
+    this.setState({ experience: value });
   }
 
   render() {
@@ -74,14 +79,16 @@ export default class CreateUser extends Component  {
             name='location'
             handleChange={ this.handleUserInput }
           />
-          <Input
+          <select
             className='user-input'
-            placeholder='Experience'
-            type='text'
             value={ experience }
-            name='experience'
-            handleChange={ this.handleUserInput }
-          />
+            onChange={ this.handleExperience }
+          >
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+            <option value="expert">Expert</option>
+          </select>
           <Input
             className='user-input'
             placeholder='Email'
@@ -108,7 +115,7 @@ export default class CreateUser extends Component  {
           />
           <button
             className='submit-button'
-            onClick={ () => this.handleUserCreate() } >
+            onClick={ this.handleUserCreate } >
             Submit
           </button>
         </article>
