@@ -23,7 +23,7 @@ export default class Login extends Component  {
   }
   handleUserSubmit() {
     const { username, password } = this.state;
-    const { userSignIn, signInFetch } = this.props;
+    const { userSignIn, signInFetch, history } = this.props;
     signInFetch(username, password)
     .then((response) => {
       if (!response.ok) {
@@ -36,6 +36,7 @@ export default class Login extends Component  {
         response.json()
         .then((json) => {
           userSignIn(json.data);
+          history.push('/dashboard');
         });
       }
     });
@@ -43,7 +44,8 @@ export default class Login extends Component  {
 
   render() {
     const { username, password, error } = this.state;
-    const { signedIn } = this.props;
+    const { user: { signedIn } } = this.props;
+    console.log(signedIn);
     return (
       <div>
         <Header
