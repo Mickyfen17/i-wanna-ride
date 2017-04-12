@@ -15,3 +15,12 @@ export const signInFetch = (username, password) => {
       body: JSON.stringify({ username, password }),
     });
 };
+
+export const createNewUserFetch = (firstname, lastname, location, experience, email, username, password) => {
+  return () =>
+  fetch('http://localhost:3000/api/users/new', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ firstname, lastname, location, experience, email, username, password }),
+  });
+};

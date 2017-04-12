@@ -25,12 +25,9 @@ export default class CreateUser extends Component  {
   }
 
   handleUserCreate() {
+    const { createNewUserFetch } = this.props;
     const { firstname, lastname, location, experience, email, username, password } = this.state;
-    fetch('http://localhost:3000/api/users/new', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstname, lastname, location, experience, email, username, password }),
-    })
+    createNewUserFetch(firstname, lastname, location, experience, email, username, password)
     .then((response) => {
       console.log(response);
       return response.json();
