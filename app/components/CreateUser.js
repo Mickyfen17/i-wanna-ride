@@ -21,7 +21,6 @@ export default class CreateUser extends Component  {
 
   handleUserInput(e) {
     const { value, name } = e.target;
-    console.log(value, name);
     this.setState({
       [name]: value,
     });
@@ -42,7 +41,7 @@ export default class CreateUser extends Component  {
 
   render() {
     const { firstname, lastname, location, experience, email, username, password } = this.state;
-    const { signedIn } = this.props;
+    const { user: { signedIn } } = this.props;
     return (
       <div>
         <Header
