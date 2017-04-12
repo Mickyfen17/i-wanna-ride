@@ -9,11 +9,12 @@ export default class CreateRide extends Component {
     this.state = {
       location: '',
       experience: 'beginner',
-      date: '',
-      time: '',
+      ridedate: '',
+      ridetime: '',
     };
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleExperience = this.handleExperience.bind(this);
+    this.handleNewRide = this.handleNewRide.bind(this);
   }
   handleUserInput(e) {
     const { value, name } = e.target;
@@ -25,8 +26,24 @@ export default class CreateRide extends Component {
     const { value } = e.target;
     this.setState({ experience: value });
   }
+  handleNewRide() {
+    const { user: { firstname, email } } = this.props;
+    const { location, experience, ridedate, ridetime } = this.state;
+    fetch('http://localhost:3000/api/rides/new', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstname, email, location, experience, ridedate, ridetime }),
+    })
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+  }
   render() {
-    const { location, experience, date, time } = this.state;
+    const { location, experience, ridedate, ridetime } = this.state;
     const { user: { signedIn }, userSignOut, history } = this.props;
     return (
       <div className='create-ride'>
@@ -59,20 +76,21 @@ export default class CreateRide extends Component {
           className='user-input'
           placeholder='Date'
           type='date'
-          value={ date }
-          name='date'
+          value={ ridedate }
+          name='ridedate'
           handleChange={ this.handleUserInput }
         />
         <Input
           className='user-input'
           placeholder='Time'
           type='time'
-          value={ time }
-          name='time'
+          value={ ridetime }
+          name='ridetime'
           handleChange={ this.handleUserInput }
         />
         <button
-          className='submit-button'>
+          className='submit-button'
+          onClick={ this.handleNewRide }>
           Submit
         </button>
       </div>
