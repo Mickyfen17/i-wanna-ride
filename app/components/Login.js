@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from './Header';
+import Input from './Input';
 
 export default class Login extends Component  {
   constructor() {
@@ -11,6 +12,7 @@ export default class Login extends Component  {
       password: '',
       error: '',
     };
+    this.handleUserInput = this.handleUserInput.bind(this);
   }
 
   handleUserInput(e) {
@@ -24,7 +26,7 @@ export default class Login extends Component  {
     const { userSignIn, signInFetch } = this.props;
     signInFetch(username, password)
     .then((response) => {
-      if(!response.ok) {
+      if (!response.ok) {
         this.setState({
           username: '',
           password: '',
@@ -40,33 +42,34 @@ export default class Login extends Component  {
   }
 
   render() {
+    const { username, password, error } = this.state;
     return (
       <div>
         <Header />
         <article className='login-card'>
           <h1>Login</h1>
-          <input
+          <Input
             className='user-input'
             placeholder='Username'
             type='text'
-            value={ this.state.username }
+            value={ username }
             name='username'
-            onChange={ e => this.handleUserInput(e) }
+            handleChange={ this.handleUserInput }
           />
-          <input
+          <Input
             className='user-input'
             placeholder='Password'
             type='password'
-            value={ this.state.password }
+            value={ password }
             name='password'
-            onChange={ e => this.handleUserInput(e) }
+            handleChange={ this.handleUserInput }
           />
           <button
             className='submit-button'
             onClick={ () => this.handleUserSubmit() } >
             Login
           </button>
-          { this.state.error !== '' && <h4>{ this.state.error }</h4> }
+          { error !== '' && <h4>{ error }</h4> }
           <Link to={ '/create-user' } className='create-user-link' >
             Create New User
           </Link>

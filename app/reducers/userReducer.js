@@ -1,7 +1,7 @@
 const intialState = {
   id: null,
-  first_name: null,
-  last_name: null,
+  firstname: null,
+  lastname: null,
   location: null,
   experience: null,
   username: null,
