@@ -2,21 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const Header = ({ signedIn, firstname, className }) => {
+const Header = ({ signedIn, className }) => {
   const signedInHeader = () => {
-    if (!signedIn) {
-      return (
-        <Link to={'/'} className={ className }>
+    const userPath = !signedIn ? '/' : '/dashboard';
+    return (
+      <navbar className='nav'>
+        <Link to={ userPath } className={ className }>
           I Wanna Ride
         </Link>
-      );
-    }
-    return (
-      <navbar className='signed-in-nav'>
-        <Link to={'/dashboard'} className={ className }>
-          IWR
-        </Link>
-        <h6>Welcome back, { firstname }</h6>
+        { signedIn && <button>Logout</button> }
       </navbar>
     );
   };
