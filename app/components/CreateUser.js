@@ -42,9 +42,13 @@ export default class CreateUser extends Component  {
 
   render() {
     const { firstname, lastname, location, experience, email, username, password } = this.state;
+    const { signedIn } = this.props;
     return (
       <div>
-        <Header />
+        <Header
+          className={ 'header-title' }
+          signedIn={ signedIn }
+        />
         <article className='create-user-card'>
           <h1>Create User</h1>
           <Input

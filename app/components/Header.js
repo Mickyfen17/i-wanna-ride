@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const Header = () => {
+const Header = ({ signedIn, className }) => {
   return (
-    <Link to={'/'} className='header-title'>
+    <Link to={'/'} className={ className }>
       I Wanna Ride
     </Link>
   );

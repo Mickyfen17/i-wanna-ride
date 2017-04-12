@@ -43,9 +43,13 @@ export default class Login extends Component  {
 
   render() {
     const { username, password, error } = this.state;
+    const { signedIn } = this.props;
     return (
       <div>
-        <Header />
+        <Header
+          className={ 'header-title' }
+          signedIn={ signedIn }
+        />
         <article className='login-card'>
           <h1>Login</h1>
           <Input
