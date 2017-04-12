@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Home from './Home';
 import LoginContainer from '../containers/LoginContainer';
 import CreateUserContainer from '../containers/CreateUserContainer';
+import Dashboard from '../components/Dashboard';
 
 export default class App extends Component {
 
@@ -13,6 +14,7 @@ export default class App extends Component {
         <Route exact path='/' component={ Home } />
         <Route path='/login' component={ LoginContainer } />
         <Route path='/create-user' component={ CreateUserContainer } />
+        <Route path='/dashboard' component={ Dashboard } />
       </div>
     );
   }
