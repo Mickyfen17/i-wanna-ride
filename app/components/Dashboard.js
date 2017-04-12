@@ -2,11 +2,14 @@ import React from 'react';
 
 import Header from './Header';
 
-const Dashboard = () => {
-
+const Dashboard = ({ user: { signedIn, firstname } }) => {
   return (
     <div>
-      <Header />
+      <Header
+        className={ 'signed-in-header' }
+        signedIn={ signedIn }
+        firstname={ firstname }
+      />
       <h1>DASHBOARD</h1>
     </div>
   );
