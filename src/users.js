@@ -9,5 +9,6 @@ router.post('/users/new', db.createUser);
 router.get('/users/:id/rides', db.getUserRides);
 router.post('/rides/new', db.createRide);
 router.get('/rides', db.getAllRides);
+router.post('/matchrides', db.matchRides);
 
 module.exports = router;
