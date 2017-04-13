@@ -8,7 +8,7 @@ export default class CreateRide extends Component {
     super();
     this.state = {
       location: '',
-      experience: 'beginner',
+      experience: 'Beginner',
       ridedate: '',
       ridetime: '',
     };
@@ -27,15 +27,11 @@ export default class CreateRide extends Component {
     this.setState({ experience: value });
   }
   handleNewRide() {
-    const { user: { id, firstname, email }, addNewRide } = this.props;
+    const { user: { id, firstname, email }, addNewRide, history } = this.props;
     const { location, experience, ridedate, ridetime } = this.state;
     addNewRide(id, firstname, email, location, experience, ridedate, ridetime)
-    .then((response) => {
-      console.log(response);
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
+    .then(() => {
+      history.push('/dashboard');
     });
   }
   render() {
@@ -63,10 +59,10 @@ export default class CreateRide extends Component {
           value={ experience }
           onChange={ this.handleExperience }
         >
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
-          <option value="expert">Expert</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Expert">Expert</option>
         </select>
         <Input
           className='user-input'

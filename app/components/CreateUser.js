@@ -11,7 +11,7 @@ export default class CreateUser extends Component  {
       firstname: '',
       lastname: '',
       location: '',
-      experience: 'beginner',
+      experience: 'Beginner',
       email: '',
       username: '',
       password: '',
@@ -84,10 +84,10 @@ export default class CreateUser extends Component  {
             value={ experience }
             onChange={ this.handleExperience }
           >
-            <option value="beginner">Beginner</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
-            <option value="expert">Expert</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Expert">Expert</option>
           </select>
           <Input
             className='user-input'
