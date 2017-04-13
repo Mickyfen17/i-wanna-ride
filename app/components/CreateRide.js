@@ -8,7 +8,7 @@ export default class CreateRide extends Component {
     super();
     this.state = {
       location: '',
-      experience: 'beginner',
+      experience: 'Beginner',
       ridedate: '',
       ridetime: '',
     };
@@ -63,10 +63,10 @@ export default class CreateRide extends Component {
           value={ experience }
           onChange={ this.handleExperience }
         >
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
-          <option value="expert">Expert</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Expert">Expert</option>
         </select>
         <Input
           className='user-input'
