@@ -56,6 +56,22 @@ function getUserRides(req, res, next) {
   });
 }
 
+function matchRides(req, res, next) {
+  const user_id = parseInt(req.params.id, 10);
+  db.any('select * from rides where ridedate=${date} and ridetime=${time} and experience=${experience} and location=${location} and user_id!=${userID}', req.body)
+  .then((data) => {
+    res.status(200)
+    .json({
+      status: 'success',
+      data: data,
+      message: 'Matched ride found',
+    });
+  })
+  .catch((err) => {
+    return next(err);
+  });
+}
+
 function signIn(req, res, next) {
   db.one('select * from users where username=${username} and password=${password}', req.body)
   .then((data) => {
@@ -74,12 +90,12 @@ function signIn(req, res, next) {
 function createUser(req, res, next) {
   req.body.email = req.body.email.toLowerCase();
   db.one('insert into users(firstname, lastname, location, experience, username, email, password)' +
-  'values(${firstname}, ${lastname}, ${location}, ${experience}, ${username}, ${email}, ${password}) returning id', req.body)
+  'values(${firstname}, ${lastname}, ${location}, ${experience}, ${username}, ${email}, ${password}) returning *', req.body)
   .then((data) => {
     res.status(200)
     .json({
       status: 'success',
-      id: data.id,
+      data: data,
       message: 'New user created',
     });
   })
@@ -92,7 +108,6 @@ function createUser(req, res, next) {
 }
 
 function createRide(req, res, next) {
-  // req.body.location = req.body.location.toLowerCase();
   db.one('insert into rides(user_id, firstname, email, location, experience, ridedate, ridetime)' +
   'values(${user_id}, ${firstname}, ${email}, ${location}, ${experience}, ${ridedate}, ${ridetime}) returning id', req.body)
   .then((data) => {
@@ -118,4 +133,5 @@ module.exports = {
   createRide,
   getUserRides,
   getAllRides,
+  matchRides,
 };

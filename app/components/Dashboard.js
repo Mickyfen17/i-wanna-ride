@@ -33,11 +33,12 @@ export default class Dashboard extends Component {
     const { user: { signedIn } } = this.props;
     if(signedIn) {
       return this.props.rides.map((ride) => {
-        const { id, ridedate, ridetime, experience, location } = ride;
+        const { id, user_id, ridedate, ridetime, experience, location } = ride;
         return (
           <RideInfo
             className='each-ride'
             key={ id }
+            userID={ user_id }
             date={ ridedate }
             time={ ridetime }
             experience={ experience }
