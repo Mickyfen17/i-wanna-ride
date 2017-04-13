@@ -28,15 +28,16 @@ export default class CreateUser extends Component  {
     });
   }
   handleUserCreate() {
-    const { createNewUserFetch } = this.props;
+    const { createNewUserFetch, userSignIn, history } = this.props;
     const { firstname, lastname, location, experience, email, username, password } = this.state;
     createNewUserFetch(firstname, lastname, location, experience, email, username, password)
     .then((response) => {
       console.log(response);
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
+    .then((json) => {
+      userSignIn(json.data);
+      history.push('/dashboard');
     });
   }
   handleExperience(e) {
