@@ -1,35 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const RideInfo = ({ userID, date, time, experience, location }) => {
+export default class RideInfo extends Component {
+  constructor() {
+    super()
+    this.state = {
+      matchedRides: [],
+    }
+  }
 
-  const matchRides = () => {
+  componentWillMount() {
+    const { userID, date, time, experience, location } = this.props;
     fetch('http://localhost:3000/api/matchrides', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userID, date, time, experience, location }),
     })
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-      console.log(json);
-    });
-  };
+    .then(response =>
+      response.json(),
+    )
+    .then(json =>
+      this.setState({
+        matchedRides: [...json.data],
+      }),
+    );
+  }
 
-  return (
-    <tr className='ride-row'>
-      <td className='ride-col'>
-        { `${date} - ${time} - ${experience} - ${location}` }
-      </td>
-      <td className='ride-col'>
-        No Match
-        { matchRides() }
-      </td>
-      <td className='ride-col'>
-        <button>Delete</button>
-      </td>
-    </tr>
-  );
-};
-
-export default RideInfo;
+  render() {
+    const { matchedRides } = this.state;
+    const { date, time, experience, location } = this.props;
+    return (
+      <tr className='ride-row'>
+        <td className='ride-col'>
+          { `${date} - ${time} - ${experience} - ${location}` }
+        </td>
+        <td className='ride-col'>
+          {
+            matchedRides.length > 0 ?
+            <p>Ride Matched</p> :
+            <p>No Matches</p>
+          }
+        </td>
+        <td className='ride-col'>
+          <button>Delete</button>
+        </td>
+      </tr>
+    );
+  }
+}
