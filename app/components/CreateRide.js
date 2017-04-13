@@ -27,15 +27,11 @@ export default class CreateRide extends Component {
     this.setState({ experience: value });
   }
   handleNewRide() {
-    const { user: { id, firstname, email }, addNewRide } = this.props;
+    const { user: { id, firstname, email }, addNewRide, history } = this.props;
     const { location, experience, ridedate, ridetime } = this.state;
     addNewRide(id, firstname, email, location, experience, ridedate, ridetime)
-    .then((response) => {
-      console.log(response);
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
+    .then(() => {
+      history.push('/dashboard');
     });
   }
   render() {
