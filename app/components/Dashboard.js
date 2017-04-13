@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from './Header';
-import RideInfo from './RideInfo';
+import RideInfoContainer from '../containers/RideInfoContainer';
 
 
 export default class Dashboard extends Component {
@@ -35,7 +35,7 @@ export default class Dashboard extends Component {
       return this.props.rides.map((ride) => {
         const { id, user_id, ridedate, ridetime, experience, location } = ride;
         return (
-          <RideInfo
+          <RideInfoContainer
             className='each-ride'
             key={ id }
             userID={ user_id }

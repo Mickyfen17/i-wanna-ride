@@ -12,12 +12,8 @@ export default class RideInfo extends Component {
   }
 
   componentWillMount() {
-    const { userID, date, time, experience, location } = this.props;
-    fetch('http://localhost:3000/api/matchrides', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userID, date, time, experience, location }),
-    })
+    const { userID, date, time, experience, location, fetchMatchedRides } = this.props;
+    fetchMatchedRides(userID, date, time, experience, location)
     .then(response =>
       response.json(),
     )
