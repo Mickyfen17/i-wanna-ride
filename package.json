@@ -4,7 +4,7 @@
   "description": "Personal project for Module 3 at Turing School",
   "main": "index.js",
   "scripts": {
-    "start": "npm build && node src/app.js",
+    "start": "npm build && nodemon src/app.js",
     "build": "webpack --config ./webpack.config.js",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
     "test": "jest"
@@ -40,6 +40,7 @@
     "jsdom": "^9.11.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.4.2",
+    "nodemon": "^1.11.0",
     "react-addons-test-utils": "^15.4.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
