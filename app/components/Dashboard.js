@@ -61,15 +61,19 @@ export default class Dashboard extends Component {
         { this.userSignedIn() }
         { this.addNewRide() }
         <table className='upcoming-rides'>
-          <tr className='ride-row'>
-            <th className='table-main-header'>Upcoming Rides</th>
-          </tr>
-          <tr className='ride-row'>
-            <th className='ride-row-header'>Detalis</th>
-            <th className='ride-row-header'>Status</th>
-            <th className='ride-row-header'>Delete</th>
-          </tr>
-          { this.displayUserRides() }
+          <thead>
+            <tr className='ride-row'>
+              <th className='table-main-header'>Upcoming Rides</th>
+            </tr>
+            <tr className='ride-row'>
+              <th className='ride-row-header'>Detalis</th>
+              <th className='ride-row-header'>Status</th>
+              <th className='ride-row-header'>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            { this.displayUserRides() }
+          </tbody>
         </table>
       </div>
     );
