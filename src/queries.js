@@ -40,6 +40,22 @@ function getAllRides(req, res, next) {
   });
 }
 
+function getUserRides(req, res, next) {
+  const user_id = parseInt(req.params.id, 10);
+  db.any('select * from rides where user_id=$1', user_id)
+  .then((data) => {
+    res.status(200)
+    .json({
+      status: 'success',
+      data: data,
+      message: 'Retrieved User Rides',
+    });
+  })
+  .catch((err) => {
+    return next(err);
+  });
+}
+
 function signIn(req, res, next) {
   db.one('select * from users where username=${username} and password=${password}', req.body)
   .then((data) => {
@@ -99,6 +115,7 @@ module.exports = {
   getAllUsers,
   signIn,
   createUser,
-  getAllRides,
   createRide,
+  getUserRides,
+  getAllRides,
 };
