@@ -32,7 +32,6 @@ export default class CreateUser extends Component  {
     const { firstname, lastname, location, experience, email, username, password } = this.state;
     createNewUserFetch(firstname, lastname, location, experience, email, username, password)
     .then((response) => {
-      console.log(response);
       return response.json();
     })
     .then((json) => {
