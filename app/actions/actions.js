@@ -46,3 +46,12 @@ export const addNewRide = (id, firstname, email, location, experience, ridedate,
     body: JSON.stringify({ user_id: id, firstname, email, location, experience, ridedate, ridetime }),
   });
 };
+
+export const fetchMatchedRides = (userID, date, time, experience, location) => {
+  return () =>
+  fetch('http://localhost:3000/api/matchrides', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userID, date, time, experience, location }),
+  });
+};
