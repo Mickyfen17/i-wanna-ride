@@ -26,7 +26,7 @@ CREATE TABLE rides (
 );
 
 INSERT INTO users (firstname, lastname, location, experience, username, password, email)
-  VALUES ('Mike', 'Fenwick', 'denver', 'Intermediate', 'mikefen', 'password', 'abc@abc.com');
+  VALUES ('Mike', 'Fenwick', 'Denver', 'Intermediate', 'mikefen', 'password', 'abc@abc.com');
 
 INSERT INTO rides (firstname, user_id, email, location, experience, ridedate, ridetime)
-  VALUES ('Mike', 1, 'abc@abc.com', 'Denver', 'Beginner', '01/01/2017', '10:00 PM');
+  VALUES ('Mike', 1, 'abc@abc.com', 'Denver', 'Beginner', '2017-01-01', '10:00');
