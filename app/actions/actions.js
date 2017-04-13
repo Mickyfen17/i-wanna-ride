@@ -1,4 +1,4 @@
-import { USER_SIGNED_IN, USER_SIGNED_OUT } from './action_types';
+import { USER_SIGNED_IN, USER_SIGNED_OUT, FETCH_USER_RIDES } from './action_types';
 
 export const userSignIn = (user) => {
   return {
@@ -10,6 +10,13 @@ export const userSignIn = (user) => {
 export const userSignOut = () => {
   return {
     type: USER_SIGNED_OUT,
+  };
+};
+
+export const fetchUserRides = (rides) => {
+  return {
+    type: FETCH_USER_RIDES,
+    rides,
   };
 };
 
