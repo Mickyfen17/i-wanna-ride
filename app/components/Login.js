@@ -45,7 +45,6 @@ export default class Login extends Component  {
   render() {
     const { username, password, error } = this.state;
     const { user: { signedIn } } = this.props;
-    console.log(signedIn);
     return (
       <div>
         <Header

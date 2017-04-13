@@ -5,6 +5,7 @@ import Home from './Home';
 import LoginContainer from '../containers/LoginContainer';
 import CreateUserContainer from '../containers/CreateUserContainer';
 import DashboardContainer from '../containers/DashboardContainer';
+import CreateRideContainer from '../containers/CreateRideContainer';
 
 export default class App extends Component {
 
@@ -15,6 +16,7 @@ export default class App extends Component {
         <Route path='/login' component={ LoginContainer } />
         <Route path='/create-user' component={ CreateUserContainer } />
         <Route path='/dashboard' component={ DashboardContainer } />
+        <Route path='/create-ride' component={ CreateRideContainer } />
       </div>
     );
   }
