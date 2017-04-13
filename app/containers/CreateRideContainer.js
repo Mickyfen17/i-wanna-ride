@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import CreateRide from '../components/CreateRide';
-import { userSignOut } from '../actions/actions';
+import { userSignOut, addNewRide } from '../actions/actions';
 
 
 const mapStateToProps = (state) => {
@@ -11,6 +11,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     userSignOut: () => dispatch(userSignOut()),
+    addNewRide: (id, firstname, email, location, experience, ridedate, ridetime) =>
+      dispatch(addNewRide(id, firstname, email, location, experience, ridedate, ridetime)),
   };
 };
 

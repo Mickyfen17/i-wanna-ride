@@ -27,13 +27,9 @@ export default class CreateRide extends Component {
     this.setState({ experience: value });
   }
   handleNewRide() {
-    const { user: { id, firstname, email } } = this.props;
+    const { user: { id, firstname, email }, addNewRide } = this.props;
     const { location, experience, ridedate, ridetime } = this.state;
-    fetch('http://localhost:3000/api/rides/new', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user_id: id, firstname, email, location, experience, ridedate, ridetime }),
-    })
+    addNewRide(id, firstname, email, location, experience, ridedate, ridetime)
     .then((response) => {
       console.log(response);
       return response.json();
