@@ -92,7 +92,7 @@ function createUser(req, res, next) {
 }
 
 function createRide(req, res, next) {
-  req.body.location = req.body.location.toLowerCase();
+  // req.body.location = req.body.location.toLowerCase();
   db.one('insert into rides(user_id, firstname, email, location, experience, ridedate, ridetime)' +
   'values(${user_id}, ${firstname}, ${email}, ${location}, ${experience}, ${ridedate}, ${ridetime}) returning id', req.body)
   .then((data) => {

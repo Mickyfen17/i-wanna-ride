@@ -4,7 +4,7 @@ import {  routerReducer } from 'react-router-redux';
 import user from './userReducer';
 import rides from './ridesReducer';
 
-const appReducer = combineReducers ({
+const appReducer = combineReducers({
   user,
   rides,
 });
