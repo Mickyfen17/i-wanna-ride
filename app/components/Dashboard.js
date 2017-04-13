@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from './Header';
+import RideInfo from './RideInfo';
 
 
 export default class Dashboard extends Component {
@@ -34,7 +35,14 @@ export default class Dashboard extends Component {
       return this.props.rides.map((ride) => {
         const { id, ridedate, ridetime, experience, location } = ride;
         return (
-          <h4 key={id}>{`${ridedate} - ${ridetime} - ${experience} - ${location}`}</h4>
+          <RideInfo
+            className='each-ride'
+            key={ id }
+            date={ ridedate }
+            time={ ridetime }
+            experience={ experience }
+            location={ location }
+          />
         );
       });
     }
@@ -52,9 +60,17 @@ export default class Dashboard extends Component {
         <h1>DASHBOARD</h1>
         { this.userSignedIn() }
         { this.addNewRide() }
-        <article className='upcoming-rides'>
+        <table className='upcoming-rides'>
+          <tr className='ride-row'>
+            <th className='table-main-header'>Upcoming Rides</th>
+          </tr>
+          <tr className='ride-row'>
+            <th className='ride-row-header'>Detalis</th>
+            <th className='ride-row-header'>Status</th>
+            <th className='ride-row-header'>Delete</th>
+          </tr>
           { this.displayUserRides() }
-        </article>
+        </table>
       </div>
     );
   }
