@@ -47,6 +47,15 @@ export const addNewRide = (id, firstname, email, location, experience, ridedate,
   });
 };
 
+export const deleteRide = (user_id, ride_id) => {
+  return () =>
+  fetch(`http://localhost:3000/api/users/${user_id}/rides/${ride_id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ user_id, ride_id }),
+  });
+};
+
 export const fetchMatchedRides = (userID, date, time, experience, location) => {
   return () =>
   fetch('http://localhost:3000/api/matchrides', {
