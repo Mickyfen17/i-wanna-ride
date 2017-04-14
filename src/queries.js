@@ -41,7 +41,7 @@ function getAllRides(req, res, next) {
 }
 
 function getUserRides(req, res, next) {
-  const user_id = parseInt(req.params.id, 10);
+  const user_id = parseInt(req.params.user_id, 10);
   db.any('select * from rides where user_id=$1', user_id)
   .then((data) => {
     res.status(200)
@@ -126,6 +126,22 @@ function createRide(req, res, next) {
   });
 }
 
+function deleteRide(req, res, next) {
+  const user_id = parseInt(req.params.user_id, 10);
+  const ride_id = parseInt(req.params.ride_id, 10);
+  db.result('delete from rides where user_id = $1 and id = $2', [user_id, ride_id])
+  .then((result) => {
+    res.status(200)
+    .json({
+      status: 'success',
+      message: `Ride ${result.rowCount} has been deleted`,
+    });
+  })
+  .catch((err) => {
+    next(err);
+  });
+}
+
 module.exports = {
   getAllUsers,
   signIn,
@@ -134,4 +150,5 @@ module.exports = {
   getUserRides,
   getAllRides,
   matchRides,
+  deleteRide,
 };

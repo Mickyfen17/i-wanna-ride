@@ -29,6 +29,7 @@ export default class Dashboard extends Component {
       </Link>
     );
   }
+
   displayUserRides() {
     const { user: { signedIn } } = this.props;
     if(signedIn) {
@@ -39,6 +40,7 @@ export default class Dashboard extends Component {
             className='each-ride'
             key={ id }
             userID={ user_id }
+            rideID={ id }
             date={ ridedate }
             time={ ridetime }
             experience={ experience }

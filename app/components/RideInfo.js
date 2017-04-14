@@ -9,6 +9,7 @@ export default class RideInfo extends Component {
       showMatchDetails: false,
     };
     this.toggleModal = this.toggleModal.bind(this);
+    this.deleteRide = this.deleteRide.bind(this);
   }
 
   componentWillMount() {
@@ -22,6 +23,28 @@ export default class RideInfo extends Component {
         matchedRides: [...json.data],
       }),
     );
+  }
+
+  deleteRide() {
+    const { userID, rideID } = this.props;
+    fetch(`http://localhost:3000/api/users/${userID}/rides/${rideID}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user_id: userID, ride_id: rideID }),
+    })
+    .then(() => {
+      this.fetchUpdatedRides();
+    });
+  }
+
+  fetchUpdatedRides() {
+    fetch(`http://localhost:3000/api/users/${this.props.userID}/rides`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      this.props.fetchUserRides(json.data);
+    });
   }
 
   toggleModal() {
@@ -77,7 +100,11 @@ export default class RideInfo extends Component {
           }
         </td>
         <td className='ride-col'>
-          <button>Delete</button>
+          <button
+            onClick={ this.deleteRide }
+          >
+            Delete
+          </button>
         </td>
       </tr>
     );
