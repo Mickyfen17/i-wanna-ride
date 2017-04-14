@@ -27,11 +27,23 @@ export default class RideInfo extends Component {
 
   deleteRide() {
     const { userID, rideID } = this.props;
-    console.log(userID, rideID);
     fetch(`http://localhost:3000/api/users/${userID}/rides/${rideID}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user_id: userID, ride_id: rideID }),
+    })
+    .then(() => {
+      this.fetchUpdatedRides();
+    });
+  }
+
+  fetchUpdatedRides() {
+    fetch(`http://localhost:3000/api/users/${this.props.userID}/rides`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      this.props.fetchUserRides(json.data);
     });
   }
 
