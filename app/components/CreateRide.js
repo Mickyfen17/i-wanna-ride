@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 
 import Header from './Header';
 import Input from './Input';
+import PlacesSearch from './PlacesSearch';
 
 export default class CreateRide extends Component {
   constructor() {
     super();
     this.state = {
       location: '',
+      latitude: '',
+      longitude: '',
       experience: 'Beginner',
       ridedate: '',
       ridetime: '',
     };
     this.handleUserInput = this.handleUserInput.bind(this);
-    this.handleExperience = this.handleExperience.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
     this.handleNewRide = this.handleNewRide.bind(this);
   }
   handleUserInput(e) {
@@ -22,20 +25,24 @@ export default class CreateRide extends Component {
       [name]: value,
     });
   }
-  handleExperience(e) {
-    const { value } = e.target;
-    this.setState({ experience: value });
+  handleLocation(location) {
+    const { label, location: { lat, lng } } = location;
+    this.setState({
+      location: label,
+      latitude: lat,
+      longitude: lng,
+    });
   }
   handleNewRide() {
     const { user: { id, firstname, email }, addNewRide, history } = this.props;
-    const { location, experience, ridedate, ridetime } = this.state;
-    addNewRide(id, firstname, email, location, experience, ridedate, ridetime)
+    const { location, latitude, longitude, experience, ridedate, ridetime } = this.state;
+    addNewRide(id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime)
     .then(() => {
       history.push('/dashboard');
     });
   }
   render() {
-    const { location, experience, ridedate, ridetime } = this.state;
+    const { experience, ridedate, ridetime } = this.state;
     const { user: { signedIn }, userSignOut, history } = this.props;
     return (
       <div className='create-ride'>
@@ -45,46 +52,45 @@ export default class CreateRide extends Component {
           handleSignOut={ userSignOut }
           history={ history }
         />
-        <h1>CREATE RIDE</h1>
-        <Input
-          className='user-input'
-          placeholder='Location'
-          type='text'
-          value={ location }
-          name='location'
-          handleChange={ this.handleUserInput }
-        />
-        <select
-          className='user-input'
-          value={ experience }
-          onChange={ this.handleExperience }
-        >
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Advanced">Advanced</option>
-          <option value="Expert">Expert</option>
-        </select>
-        <Input
-          className='user-input'
-          placeholder='Date'
-          type='date'
-          value={ ridedate }
-          name='ridedate'
-          handleChange={ this.handleUserInput }
-        />
-        <Input
-          className='user-input'
-          placeholder='Time'
-          type='time'
-          value={ ridetime }
-          name='ridetime'
-          handleChange={ this.handleUserInput }
-        />
-        <button
-          className='submit-button'
-          onClick={ this.handleNewRide }>
-          Submit
-        </button>
+        <article className='create-ride-card'>
+          <h1>CREATE RIDE</h1>
+          <PlacesSearch
+            name='location'
+            handleChange={ this.handleLocation }
+          />
+          <select
+            className='user-input'
+            name='experience'
+            value={ experience }
+            onChange={ this.handleUserInput }
+          >
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Expert">Expert</option>
+          </select>
+          <Input
+            className='user-input'
+            placeholder='Date'
+            type='date'
+            value={ ridedate }
+            name='ridedate'
+            handleChange={ this.handleUserInput }
+          />
+          <Input
+            className='user-input'
+            placeholder='Time'
+            type='time'
+            value={ ridetime }
+            name='ridetime'
+            handleChange={ this.handleUserInput }
+          />
+          <button
+            className='submit-button'
+            onClick={ this.handleNewRide }>
+            Submit
+          </button>
+        </article>
       </div>
     );
   }
