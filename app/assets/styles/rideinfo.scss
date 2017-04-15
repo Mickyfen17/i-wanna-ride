@@ -1,0 +1,31 @@
+.ride-info-wrapper {
+  position: relative;
+  height: 100%;
+  .ride-location {
+    width: 80%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  .close-modal-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.map-marker {
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: transparent url(../images/bike.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  &:after {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin: 28px 0 0 5px;
+    background: transparent url(../images/down-triangle.svg) no-repeat;
+  }
+}
