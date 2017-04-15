@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import GoogleMapReact from 'google-map-react';
+
+import MapMarker from './MapMarker';
 
 export default class RideInfo extends Component {
   constructor() {
@@ -56,18 +59,33 @@ export default class RideInfo extends Component {
       isOpen={ showMatchDetails }
       contentLabel='matched-rider-info'
     >
-      <article>
+      <article className='ride-info-wrapper'>
         <h1>Rider Infomation</h1>
         {
           matchedRides.map((ride, i) =>
-            <div key={ i }>
+            <div
+              key={ i }
+              className='ride-location'
+            >
               <h2>{ ride.firstname }</h2>
               <h2>{ ride.email }</h2>
+              <h2>{ ride.location }</h2>
+              <GoogleMapReact
+                center={ [parseFloat(ride.latitude, 10), parseFloat(ride.longitude, 10)] }
+                zoom={ 15 }
+                >
+                  <MapMarker
+                    lat={ parseFloat(ride.latitude, 10) }
+                    lng={ parseFloat(ride.longitude, 10) }
+                  />
+              </GoogleMapReact>
             </div>,
           )
         }
         <button
-          onClick={ this.toggleModal } >
+          className='close-modal-btn'
+          onClick={ this.toggleModal }
+        >
           X
         </button>
       </article>
