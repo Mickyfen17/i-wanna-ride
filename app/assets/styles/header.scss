@@ -14,9 +14,8 @@
     width: 30px;
     height: 30px;
     margin-left: 8px;
-    background-image: url(../images/bike_cog.svg);
+    background: transparent url(../images/bike_cog.svg) no-repeat;
     background-size: 30px 30px;
-    background-repeat: no-repeat;
     animation: $cog-animation;
     -webkit-animation: $cog-animation;
   }
@@ -35,9 +34,8 @@
     width: 20px;
     height: 20px;
     margin-left: 8px;
-    background-image: url(../images/bike_cog.svg);
+    background: transparent url(../images/bike_cog.svg) no-repeat;
     background-size: 20px 20px;
-    background-repeat: no-repeat;
     animation: $cog-animation;
     -webkit-animation: $cog-animation;
   }
