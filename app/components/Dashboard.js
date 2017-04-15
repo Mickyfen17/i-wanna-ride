@@ -52,6 +52,7 @@ export default class Dashboard extends Component {
   }
   render() {
     const { user: { signedIn }, userSignOut, history } = this.props;
+    const userRides = this.displayUserRides();
     return (
       <div className='dashboard'>
         <Header
@@ -75,7 +76,7 @@ export default class Dashboard extends Component {
             </tr>
           </thead>
           <tbody>
-            { this.displayUserRides() }
+            { userRides }
           </tbody>
         </table>
       </div>
