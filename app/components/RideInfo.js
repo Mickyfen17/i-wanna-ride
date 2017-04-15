@@ -46,6 +46,19 @@ export default class RideInfo extends Component {
     });
   }
 
+  createMapOptions(maps) {
+    return {
+      zoomControlOptions: {
+        position: maps.ControlPosition.RIGHT_BOTTOM,
+        style: maps.ZoomControlStyle.SMALL
+      },
+      mapTypeControlOptions: {
+        position: maps.ControlPosition.TOP_RIGHT
+      },
+      mapTypeControl: true
+    };
+  }
+
   toggleModal() {
     this.setState({
       showMatchDetails: !this.state.showMatchDetails,
@@ -73,10 +86,12 @@ export default class RideInfo extends Component {
               <GoogleMapReact
                 center={ [parseFloat(ride.latitude, 10), parseFloat(ride.longitude, 10)] }
                 zoom={ 15 }
+                options={ this.createMapOptions }
                 >
                   <MapMarker
                     lat={ parseFloat(ride.latitude, 10) }
                     lng={ parseFloat(ride.longitude, 10) }
+                    location={ ride.location}
                   />
               </GoogleMapReact>
             </div>,
