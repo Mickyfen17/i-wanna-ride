@@ -18,7 +18,7 @@ export default class CreateUser extends Component  {
       password: '',
     };
     this.handleUserInput = this.handleUserInput.bind(this);
-    this.handleExperience = this.handleExperience.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
     this.handleUserCreate = this.handleUserCreate.bind(this);
   }
 
@@ -40,13 +40,13 @@ export default class CreateUser extends Component  {
       history.push('/dashboard');
     });
   }
-  handleExperience(e) {
-    const { value } = e.target;
-    this.setState({ experience: value });
+  handleLocation(location) {
+    const { label } = location;
+    this.setState({ location: label });
   }
 
   render() {
-    const { firstname, lastname, location, experience, email, username, password } = this.state;
+    const { firstname, lastname, experience, email, username, password } = this.state;
     const { user: { signedIn } } = this.props;
     return (
       <div>
@@ -72,11 +72,15 @@ export default class CreateUser extends Component  {
             name='lastname'
             handleChange={ this.handleUserInput }
           />
-          <PlacesSearch />
+          <PlacesSearch
+            name='location'
+            handleChange={ this.handleLocation }
+          />
           <select
             className='user-input'
+            name='experience'
             value={ experience }
-            onChange={ this.handleExperience }
+            onChange={ this.handleUserInput }
           >
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>

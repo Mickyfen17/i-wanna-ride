@@ -1,12 +1,12 @@
 import React from 'react';
 import Geosuggest from 'react-geosuggest';
 
-const PlacesSearch = () => {
+const PlacesSearch = ({ handleChange }) => {
 
   return (
     <Geosuggest
       placeholder='Location'
-      onSuggestSelect={ suggest => console.log(suggest) }
+      onSuggestSelect={ suggest => handleChange(suggest) }
      />
   );
 };
