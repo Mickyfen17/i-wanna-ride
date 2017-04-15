@@ -13,7 +13,7 @@ export default class CreateRide extends Component {
       longitude: '',
       experience: 'Beginner',
       ridedate: '',
-      ridetime: '',
+      ridetime: 'Morning',
     };
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
@@ -73,18 +73,20 @@ export default class CreateRide extends Component {
             className='user-input'
             placeholder='Date'
             type='date'
-            value={ ridedate }
             name='ridedate'
+            value={ ridedate }
             handleChange={ this.handleUserInput }
           />
-          <Input
+          <select
             className='user-input'
-            placeholder='Time'
-            type='time'
-            value={ ridetime }
             name='ridetime'
-            handleChange={ this.handleUserInput }
-          />
+            value={ ridetime }
+            onChange={ this.handleUserInput }
+          >
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+          </select>
           <button
             className='submit-button'
             onClick={ this.handleNewRide }>
