@@ -1,5 +1,3 @@
-@import 'variables';
-
 .home-page-header {
   padding: 35px 0;
   text-align: center;
@@ -14,9 +12,8 @@
     width: 30px;
     height: 30px;
     margin-left: 8px;
-    background-image: url(../images/bike_cog.svg);
+    background-image: $header-cog;
     background-size: 30px 30px;
-    background-repeat: no-repeat;
     animation: $cog-animation;
     -webkit-animation: $cog-animation;
   }
@@ -50,6 +47,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 500ms;
+  -webkit-transition: all 500ms;
   &:hover {
     background: transparent;
   }

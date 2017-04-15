@@ -6,13 +6,24 @@
   }
   .create-user-link {
     display: block;
+    margin-top: 10px;
     padding: 10px 0;
     text-align: center;
-    color: #FFF;
+    color: #c1ef2d;
+    font-weight: 700;
+    font-size: 1.4em;
     text-decoration: none;
+    border: 1px solid transparent;
+    @include border-box;
+    transition: border 500ms;
+    -webkit-transition: border 500ms;
+    &:hover {
+      border: 1px solid #c1ef2d;
+    }
   }
   h4 {
     text-align: center;
     color: red;
+    font-weight: 700;
   }
 }

@@ -1,5 +1,6 @@
 .create-ride-card {
   width: 90%;
+  max-width: 450px;
   margin: 0 auto;
   h1 {
     @include form-header;

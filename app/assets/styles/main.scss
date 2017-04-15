@@ -1,4 +1,5 @@
 @import 'reset';
+@import 'variables';
 @import 'home';
 @import 'dashboard';
 @import 'login';
@@ -12,5 +13,6 @@
 body {
   min-height: 100vh;
   background-size: cover;
-  background: url(../images/small-media-background.jpg) no-repeat;
+  background: $mobile-background-img;
+  font-family: $main-content-font;
 }

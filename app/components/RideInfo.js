@@ -130,6 +130,7 @@ export default class RideInfo extends Component {
         </td>
         <td className='ride-col'>
           <button
+            className='delete-ride-button'
             onClick={ this.deleteRide }
           >
             Delete

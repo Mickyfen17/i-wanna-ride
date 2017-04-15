@@ -5,9 +5,8 @@
   margin: 0;
   padding: 0;
   border: 1px solid grey;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  font-family: $main-content-font;
+  @include border-box;
   font-size: 1.2em;
   text-indent: 5px;
   &:focus {
@@ -16,7 +15,7 @@
   }
   &::-webkit-input-placeholder {
     color: grey;
-    font-size: 0.6em;
+    font-size: 0.8em;
   }
 }
 
@@ -28,10 +27,12 @@
   background: #FFF;
   color: #000;
   border: 4px solid #FFF;
+  font-family: $main-content-font;
   font-size: 1.2em;
   font-weight: 700;
   cursor: pointer;
   transition: all 500ms;
+  -webkit-transition: all 500ms;
   &:hover {
     background: transparent;
     color: #FFF;
