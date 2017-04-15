@@ -12,7 +12,7 @@
     width: 30px;
     height: 30px;
     margin-left: 8px;
-    background: transparent url(../images/bike_cog.svg) no-repeat;
+    background: $header-cog;
     background-size: 30px 30px;
     animation: $cog-animation;
     -webkit-animation: $cog-animation;
@@ -32,7 +32,7 @@
     width: 20px;
     height: 20px;
     margin-left: 8px;
-    background: transparent url(../images/bike_cog.svg) no-repeat;
+    background: $header-cog;
     background-size: 20px 20px;
     animation: $cog-animation;
     -webkit-animation: $cog-animation;

@@ -5,9 +5,7 @@
   margin: 0;
   padding: 0;
   border: 1px solid grey;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  @include border-box;
   font-size: 1.2em;
   text-indent: 5px;
   &:focus {
@@ -27,11 +25,9 @@
   border-top-width: 0;
   max-height: 300px;
   background: #FFF;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: max-height 0.2s, border 0.2s;
+  @include border-box;
   transition: max-height 0.2s, border 0.2s;
+  -webkit-transition: max-height 0.2s, border 0.2s;
 }
 
 .geosuggest__suggests--hidden {
