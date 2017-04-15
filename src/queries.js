@@ -108,8 +108,8 @@ function createUser(req, res, next) {
 }
 
 function createRide(req, res, next) {
-  db.one('insert into rides(user_id, firstname, email, location, experience, ridedate, ridetime)' +
-  'values(${user_id}, ${firstname}, ${email}, ${location}, ${experience}, ${ridedate}, ${ridetime}) returning id', req.body)
+  db.one('insert into rides(user_id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime)' +
+  'values(${user_id}, ${firstname}, ${email}, ${location}, ${latitude}, ${longitude}, ${experience}, ${ridedate}, ${ridetime}) returning id', req.body)
   .then((data) => {
     res.status(200)
     .json({

@@ -38,12 +38,12 @@ export const createNewUserFetch = (firstname, lastname, location, experience, em
   });
 };
 
-export const addNewRide = (id, firstname, email, location, experience, ridedate, ridetime) => {
+export const addNewRide = (id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime) => {
   return () =>
   fetch('http://localhost:3000/api/rides/new', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ user_id: id, firstname, email, location, experience, ridedate, ridetime }),
+    body: JSON.stringify({ user_id: id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime }),
   });
 };
 

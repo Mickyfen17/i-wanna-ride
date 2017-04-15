@@ -18,7 +18,7 @@ export default class Dashboard extends Component {
   }
   userSignedIn() {
     const { user: { firstname, signedIn } } = this.props;
-    return signedIn ? <h3>Welcome back, { firstname }</h3> : <h3>Please Login</h3>;
+    return signedIn ? <h3>Welcome, { firstname }</h3> : <h3>Please Login</h3>;
   }
   addNewRide() {
     const { user: { signedIn } } = this.props;
