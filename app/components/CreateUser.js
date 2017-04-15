@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Header from './Header';
 import Input from './Input';
+import PlacesSearch from './PlacesSearch';
 
 export default class CreateUser extends Component  {
   constructor() {
@@ -71,14 +72,7 @@ export default class CreateUser extends Component  {
             name='lastname'
             handleChange={ this.handleUserInput }
           />
-          <Input
-            className='user-input'
-            placeholder='Location'
-            type='text'
-            value={ location }
-            name='location'
-            handleChange={ this.handleUserInput }
-          />
+          <PlacesSearch />
           <select
             className='user-input'
             value={ experience }
