@@ -24,7 +24,13 @@ module.exports = {
       },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.scss$/, loader: 'style!css!sass' },
-      { test: /\.svg$/, loader: 'svg-url-loader' },
+      {
+        test: /\.(?:png|jpg|svg)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+        },
+      },
     ],
   },
   resolve: {
