@@ -38,3 +38,14 @@
     -webkit-animation: $cog-animation;
   }
 }
+
+.logout-button {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  border: 2px solid #c1ef2d;
+  background: #c1ef2d;
+  font-family: "Dosis", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}

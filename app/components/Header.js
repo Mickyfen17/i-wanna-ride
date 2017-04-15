@@ -12,6 +12,7 @@ const Header = ({ signedIn, className, handleSignOut, history }) => {
         </Link>
         { signedIn &&
           <button
+            className='logout-button'
             onClick={ () => { handleSignOut(); history.push('/'); } }>
             Logout
           </button>

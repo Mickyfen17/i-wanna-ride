@@ -1,3 +1,14 @@
 .dashboard {
   color: #FFF;
+  h1 {
+    padding: 15px 0;
+    color: black;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .upcoming-rides {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
