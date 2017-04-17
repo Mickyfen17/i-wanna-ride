@@ -13,7 +13,7 @@ export const userSignOut = () => {
   };
 };
 
-export const fetchUserRides = (rides) => {
+export const userRidesAction = (rides) => {
   return {
     type: FETCH_USER_RIDES,
     rides,
@@ -63,4 +63,15 @@ export const fetchMatchedRides = (userID, date, time, experience, location) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ userID, date, time, experience, location }),
   });
+};
+
+export const fetchAllUserRides = (userID) => {
+  return dispatch =>
+  fetch(`http://localhost:3000/api/users/${userID}/rides`)
+  .then(response =>
+    response.json(),
+  )
+  .then(json =>
+    dispatch(userRidesAction(json.data)),
+  );
 };
