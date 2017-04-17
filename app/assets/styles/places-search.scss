@@ -6,15 +6,16 @@
   padding: 0;
   border: 1px solid grey;
   @include border-box;
-  font-size: 1.2em;
-  text-indent: 5px;
+  font-family: $main-content-font;
+  font-size: 1em;
+  text-indent: 10px;
   &:focus {
     outline: none;
     border: 1px solid #FFF;
   }
   &::-webkit-input-placeholder {
     color: grey;
-    font-size: 0.6em;
+    font-size: 1em;
   }
 }
 .geosuggest__suggests {

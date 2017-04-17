@@ -1,3 +1,11 @@
+.form-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.7);
+}
+
 .user-input {
   position: relative;
   width: 100%;
@@ -7,16 +15,21 @@
   border: 1px solid grey;
   font-family: $main-content-font;
   @include border-box;
-  font-size: 1.2em;
-  text-indent: 5px;
+  font-size: 1em;
+  text-indent: 10px;
   &:focus {
     outline: none;
     border: 1px solid #FFF;
   }
   &::-webkit-input-placeholder {
     color: grey;
-    font-size: 0.8em;
+    font-size: 1em;
   }
+}
+
+.select-input {
+  text-indent: 0px;
+  color: grey;
 }
 
 .submit-button {
@@ -27,7 +40,7 @@
   background: #FFF;
   color: #000;
   border: 4px solid #FFF;
-  font-family: $main-content-font;
+  font-family: $main-header-font;
   font-size: 1.2em;
   font-weight: 700;
   cursor: pointer;
