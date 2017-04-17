@@ -7,6 +7,7 @@ const PlacesSearch = ({ handleChange }) => {
     <Geosuggest
       placeholder='Location'
       onSuggestSelect={ suggest => handleChange(suggest) }
+      onClick={ e => e.target.placeholder = 'Enter Location' }
      />
   );
 };
