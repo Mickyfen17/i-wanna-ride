@@ -4,24 +4,19 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import RideInfoContainer from '../containers/RideInfoContainer';
 
-
 export default class Dashboard extends Component {
 
   componentWillMount() {
-    fetch(`http://localhost:3000/api/users/${this.props.user.id}/rides`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-      this.props.fetchUserRides(json.data);
-    });
+    this.props.fetchAllUserRides(this.props.user.id);
   }
+
   userSignedIn() {
     const { user: { firstname, signedIn } } = this.props;
     return signedIn ?
     <h3 className='dash-welcome'>{ firstname }'s DASHBOARD</h3> :
     <h3 className='dash-welcome please-login'>Please Login</h3>;
   }
+
   addNewRide() {
     const { user: { signedIn } } = this.props;
     return (
@@ -34,7 +29,7 @@ export default class Dashboard extends Component {
 
   displayUserRides() {
     const { user: { signedIn } } = this.props;
-    if(signedIn) {
+    if (signedIn) {
       return this.props.rides.map((ride) => {
         const { id, user_id, ridedate, ridetime, experience, location } = ride;
         return (
