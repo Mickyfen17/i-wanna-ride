@@ -37,25 +37,19 @@ export default class RideInfo extends Component {
   }
 
   fetchUpdatedRides() {
-    fetch(`http://localhost:3000/api/users/${this.props.userID}/rides`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-      this.props.fetchUserRides(json.data);
-    });
+    this.props.fetchAllUserRides(this.props.userID);
   }
 
   createMapOptions(maps) {
     return {
       zoomControlOptions: {
         position: maps.ControlPosition.RIGHT_BOTTOM,
-        style: maps.ZoomControlStyle.SMALL
+        style: maps.ZoomControlStyle.SMALL,
       },
       mapTypeControlOptions: {
-        position: maps.ControlPosition.TOP_RIGHT
+        position: maps.ControlPosition.TOP_RIGHT,
       },
-      mapTypeControl: true
+      mapTypeControl: true,
     };
   }
 
