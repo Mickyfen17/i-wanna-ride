@@ -56,3 +56,17 @@
 .link-to-login {
   text-decoration: none;
 }
+
+@media screen and (min-width: 600px) {
+  .home-page-header {
+    font-size: 3.8em;
+    &:after {
+      width: 40px;
+      height: 40px;
+      background-size: 40px 40px;
+    }
+  }
+  .home-page-caption {
+    font-size: 1.4em;
+  }
+}
