@@ -51,34 +51,36 @@ export default class Login extends Component  {
           className={ 'header-title' }
           signedIn={ signedIn }
         />
-        <article className='login-card'>
-          <h1>Login</h1>
-          <Input
-            className='user-input'
-            placeholder='Username'
-            type='text'
-            value={ username }
-            name='username'
-            handleChange={ this.handleUserInput }
-          />
-          <Input
-            className='user-input'
-            placeholder='Password'
-            type='password'
-            value={ password }
-            name='password'
-            handleChange={ this.handleUserInput }
-          />
-          <button
-            className='submit-button'
-            onClick={ () => this.handleUserSubmit() } >
-            Login
-          </button>
-          { error !== '' && <h4>{ error }</h4> }
-          <Link to={ '/create-user' } className='create-user-link' >
-            Create New User
-          </Link>
-        </article>
+        <div className='form-wrapper'>
+          <article className='login-card'>
+            <h1>Login</h1>
+            <Input
+              className='user-input'
+              placeholder='Username'
+              type='text'
+              value={ username }
+              name='username'
+              handleChange={ this.handleUserInput }
+            />
+            <Input
+              className='user-input'
+              placeholder='Password'
+              type='password'
+              value={ password }
+              name='password'
+              handleChange={ this.handleUserInput }
+            />
+            <button
+              className='submit-button'
+              onClick={ () => this.handleUserSubmit() } >
+              Login
+            </button>
+            { error !== '' && <h4>{ error }</h4> }
+            <Link to={ '/create-user' } className='create-user-link' >
+              Create New User
+            </Link>
+          </article>
+        </div>
       </div>
     );
   }

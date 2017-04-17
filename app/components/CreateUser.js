@@ -54,69 +54,75 @@ export default class CreateUser extends Component  {
           className={ 'header-title' }
           signedIn={ signedIn }
         />
-        <article className='create-user-card'>
-          <h1>Create User</h1>
-          <Input
-            className='user-input firstname'
-            placeholder='First Name'
-            type='text'
-            value={ firstname }
-            name='firstname'
-            handleChange={ this.handleUserInput }
-          />
-          <Input
-            className='user-input lastname'
-            placeholder='Last Name'
-            type='text'
-            value={ lastname }
-            name='lastname'
-            handleChange={ this.handleUserInput }
-          />
-          <PlacesSearch
-            name='location'
-            handleChange={ this.handleLocation }
-          />
-          <select
-            className='user-input'
-            name='experience'
-            value={ experience }
-            onChange={ this.handleUserInput }
-          >
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-            <option value="Expert">Expert</option>
-          </select>
-          <Input
-            className='user-input'
-            placeholder='Email'
-            type='text'
-            value={ email }
-            name='email'
-            handleChange={ this.handleUserInput }
-          />
-          <Input
-            className='user-input'
-            placeholder='Username'
-            type='text'
-            value={ username }
-            name='username'
-            handleChange={ this.handleUserInput }
-          />
-          <Input
-            className='user-input'
-            placeholder='Password'
-            type='password'
-            value={ password }
-            name='password'
-            handleChange={ this.handleUserInput }
-          />
-          <button
-            className='submit-button'
-            onClick={ this.handleUserCreate } >
-            Submit
-          </button>
-        </article>
+        <div className='form-wrapper'>
+          <article className='create-user-card'>
+            <h1>Create User</h1>
+            <Input
+              className='user-input firstname'
+              placeholder='First Name'
+              type='text'
+              value={ firstname }
+              name='firstname'
+              handleChange={ this.handleUserInput }
+            />
+            <Input
+              className='user-input lastname'
+              placeholder='Last Name'
+              type='text'
+              value={ lastname }
+              name='lastname'
+              handleChange={ this.handleUserInput }
+            />
+            <PlacesSearch
+              name='location'
+              handleChange={ this.handleLocation }
+            />
+            <select
+              className='user-input select-input'
+              name='experience'
+              value={ experience }
+              onChange={ this.handleUserInput }
+              >
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Expert">Expert</option>
+            </select>
+            <Input
+              className='user-input'
+              placeholder='Email'
+              type='text'
+              value={ email }
+              name='email'
+              handleChange={ this.handleUserInput }
+            />
+            <Input
+              className='user-input'
+              placeholder='Username'
+              type='text'
+              value={ username }
+              name='username'
+              handleChange={ this.handleUserInput }
+            />
+            <Input
+              className='user-input'
+              placeholder='Password'
+              type='password'
+              value={ password }
+              name='password'
+              handleChange={ this.handleUserInput }
+            />
+            <button
+              className='submit-button'
+              onClick={ this.handleUserCreate } >
+              Submit
+            </button>
+            <h6>Already have an account?</h6>
+            <Link to={ '/login' } className='login-user-link' >
+              Login
+            </Link>
+          </article>
+        </div>
       </div>
     );
   }

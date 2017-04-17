@@ -59,7 +59,7 @@ export default class CreateRide extends Component {
             handleChange={ this.handleLocation }
           />
           <select
-            className='user-input'
+            className='user-input select-input'
             name='experience'
             value={ experience }
             onChange={ this.handleUserInput }
@@ -78,7 +78,7 @@ export default class CreateRide extends Component {
             handleChange={ this.handleUserInput }
           />
           <select
-            className='user-input'
+            className='user-input select-input'
             name='ridetime'
             value={ ridetime }
             onChange={ this.handleUserInput }

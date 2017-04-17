@@ -10,7 +10,7 @@ const Home = () =>  {
       <Link to={'/login'} className='link-to-login' >
         <button
           className='home-page-button'>
-          Login / SignUp
+          Login / Sign Up
         </button>
       </Link>
     </div>
