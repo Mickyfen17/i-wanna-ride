@@ -10,16 +10,16 @@
   position: relative;
   width: 100%;
   height: 50px;
-  margin: 0;
+  margin: 2px 0;
   padding: 0;
-  border: 1px solid grey;
+  border: none;
+  border-radius: 5px;
   font-family: $main-content-font;
   @include border-box;
   font-size: 1em;
   text-indent: 10px;
   &:focus {
     outline: none;
-    border: 1px solid #FFF;
   }
   &::-webkit-input-placeholder {
     color: grey;
@@ -29,7 +29,7 @@
 
 .select-input {
   text-indent: 0px;
-  color: grey;
+  color: #000;
 }
 
 .submit-button {
@@ -39,7 +39,7 @@
   width: 100%;
   background: #FFF;
   color: #000;
-  border: 4px solid #FFF;
+  border: 1px solid #FFF;
   font-family: $main-header-font;
   font-size: 1.2em;
   font-weight: 700;
