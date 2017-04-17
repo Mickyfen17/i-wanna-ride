@@ -6,7 +6,7 @@ const Header = ({ signedIn, className, handleSignOut, history }) => {
   const signedInHeader = () => {
     const userPath = !signedIn ? '/' : '/dashboard';
     return (
-      <navbar className='nav'>
+      <div className='nav'>
         <Link to={ userPath } className={ className }>
           I Wanna Ride
         </Link>
@@ -17,11 +17,11 @@ const Header = ({ signedIn, className, handleSignOut, history }) => {
             Logout
           </button>
         }
-      </navbar>
+      </div>
     );
   };
   return (
-    <div>
+    <div className='navbar'>
       { signedInHeader() }
     </div>
   );
