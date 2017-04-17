@@ -30,3 +30,24 @@
     background: transparent url(../images/down-triangle.svg) no-repeat;
   }
 }
+
+.delete-ride-button {
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: transparent url(../images/trash.svg) no-repeat 0px 0px / 25px;
+  cursor: pointer;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  &:hover {
+    background: transparent url(../images/trash-open.svg) no-repeat 0px 0px / 25px;
+  }
+}
+
+.ride-match-button {
+  border: 2px solid #c1ef2d;
+  background: #c1ef2d;
+  font-family: "Permanent Marker", cursive;
+  font-weight: 700;
+  cursor: pointer;
+}

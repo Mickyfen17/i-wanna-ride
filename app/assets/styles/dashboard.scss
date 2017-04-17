@@ -1,14 +1,59 @@
 .dashboard {
   color: #FFF;
-  h1 {
-    padding: 15px 0;
-    color: black;
-    font-weight: 700;
-    font-size: 1.2em;
-    text-align: center;
-  }
   .upcoming-rides {
     width: 90%;
     margin: 0 auto;
+    background: rgba(0,0,0, 0.7)
+  }
+  .table-main-header {
+    padding: 15px 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: left;
+  }
+  .table-row-header {
+    font-size: 1.2em;
+    padding: 5px 0;
+  }
+  .ride-row-header {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+  .ride-col {
+    padding: 10px 5px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .ride-row {
+    padding: 5px;
+    border-top: 1px solid #c1ef2d;
+  }
+  .ride-details {
+    padding-left: 10px;
+    text-align: left;
+  }
+  .dash-welcome {
+    margin-top: 20px;
+    padding-left: 25px;
+    color: #000;
+    font-size: 1.2em;
+    font-weight: 700;
+    font-family: $main-header-font;
+  }
+  .add-ride-button {
+    float: right;
+    margin: 10px;
+    padding: 8px;
+    border: 1px solid #c1ef2d;
+    background: rgba(0,0,0,0.7);
+    color: #c1ef2d;
+    font-weight: 700;
+    font-size: 0.9em;
+    font-family: $main-header-font;
+    text-decoration: none;
+    cursor: pointer;
+    @include border-box;
   }
 }

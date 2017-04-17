@@ -18,14 +18,16 @@ export default class Dashboard extends Component {
   }
   userSignedIn() {
     const { user: { firstname, signedIn } } = this.props;
-    return signedIn ? <h3>Welcome, { firstname }</h3> : <h3>Please Login</h3>;
+    return signedIn ?
+    <h3 className='dash-welcome'>{ firstname }'s DASHBOARD</h3> :
+    <h3 className='dash-welcome'>Please Login</h3>;
   }
   addNewRide() {
     const { user: { signedIn } } = this.props;
     return (
       signedIn &&
       <Link to={ '/create-ride' }>
-        <button>Add new ride</button>
+        <button className='add-ride-button'>New Ride</button>
       </Link>
     );
   }
@@ -53,6 +55,8 @@ export default class Dashboard extends Component {
   render() {
     const { user: { signedIn }, userSignOut, history } = this.props;
     const userRides = this.displayUserRides();
+    const userSignedIn = this.userSignedIn();
+    const addNewRide = this.addNewRide();
     return (
       <div className='dashboard'>
         <Header
@@ -61,16 +65,20 @@ export default class Dashboard extends Component {
           handleSignOut={ userSignOut }
           history={ history }
         />
-        <h1>DASHBOARD</h1>
-        { this.userSignedIn() }
-        { this.addNewRide() }
+        { addNewRide }
+        { userSignedIn }
         <table className='upcoming-rides'>
           <thead>
-            <tr className='ride-row'>
-              <th className='table-main-header'>Upcoming Rides</th>
+            <tr>
+              <th
+                colSpan={ 3 }
+                className='table-main-header'
+              >
+                Upcoming Rides
+              </th>
             </tr>
             <tr className='ride-row'>
-              <th className='ride-row-header'>Detalis</th>
+              <th className='ride-row-header ride-details'>Details</th>
               <th className='ride-row-header'>Status</th>
               <th className='ride-row-header'>Delete</th>
             </tr>

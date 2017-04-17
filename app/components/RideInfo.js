@@ -115,25 +115,26 @@ export default class RideInfo extends Component {
     return (
       <tr className='ride-row'>
         { userModal }
-        <td className='ride-col'>
+        <td className='ride-col ride-details'>
           { `${date} - ${time} - ${experience} - ${location}` }
         </td>
         <td className='ride-col'>
           {
             matchedRides.length > 0 ?
             <button
+              className='ride-match-button'
               onClick={ this.toggleModal } >
-              Ride Matched
+              Match Found
             </button> :
-            <p>No Matches</p>
+            <p>No Match</p>
           }
         </td>
         <td className='ride-col'>
           <button
             className='delete-ride-button'
             onClick={ this.deleteRide }
+            alt='Delete Ride'
           >
-            Delete
           </button>
         </td>
       </tr>
