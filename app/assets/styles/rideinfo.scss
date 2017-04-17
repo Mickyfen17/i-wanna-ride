@@ -1,6 +1,42 @@
 .ride-info-wrapper {
   position: relative;
   height: 100%;
+  .modal-header {
+    margin-bottom: 15px;
+    font-family: $main-header-font;
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+  .modal-name {
+    margin: 8px 0;
+  }
+  .modal-email {
+    display: block;
+    margin: 8px 0;
+    color: #c1ef2d;
+    text-decoration: none;
+    &:before {
+      display: inline-block;
+      content: "";
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      background: url(../images/email.svg) no-repeat;
+      background-size: 20px 20px;
+    }
+  }
+  .modal-location {
+    margin: 8px 0;
+    &:before {
+      display: inline-block;
+      content: "";
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      background: url(../images/location.svg) no-repeat;
+      background-size: 20px 20px;
+    }
+  }
   .ride-location {
     max-width: 600px;
     height: 400px;
@@ -10,6 +46,12 @@
     position: absolute;
     top: 0;
     right: 0;
+    border: 2px solid #c1ef2d;
+    border-radius: 50%;
+    background: #c1ef2d;
+    font-family: $main-header-font;
+    font-weight: 700;
+    cursor: pointer;
   }
 }
 
@@ -46,7 +88,7 @@
 .ride-match-button {
   border: 2px solid #c1ef2d;
   background: #c1ef2d;
-  font-family: "Permanent Marker", cursive;
+  font-family: $main-header-font;
   font-weight: 700;
   cursor: pointer;
 }
@@ -54,11 +96,13 @@
 .ride-match-modal {
   height: 80%;
   width: 80%;
+  max-width: 650px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 4px;
-  border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
+  border: 1px solid #c1ef2d;
+  background: rgba(0,0,0, 0.9);
+  color: #FFF;
   overflow: auto;
   outline: none;
 }

@@ -69,20 +69,21 @@ export default class RideInfo extends Component {
     const { showMatchDetails, matchedRides } = this.state;
     return (
     <Modal
+      className='ride-match-modal'
       isOpen={ showMatchDetails }
       contentLabel='matched-rider-info'
     >
       <article className='ride-info-wrapper'>
-        <h1>Rider Infomation</h1>
+        <h1 className='modal-header'>Rider Infomation</h1>
         {
           matchedRides.map((ride, i) =>
             <div
               key={ i }
               className='ride-location'
             >
-              <h2>{ ride.firstname }</h2>
-              <h2>{ ride.email }</h2>
-              <h2>{ ride.location }</h2>
+              <h2 className='modal-name'>{ ride.firstname }</h2>
+              <a href={`mailto:${ride.email}`} className='modal-email'>{ ride.email }</a>
+              <h2 className='modal-location'>{ ride.location }</h2>
               <GoogleMapReact
                 center={ [parseFloat(ride.latitude, 10), parseFloat(ride.longitude, 10)] }
                 zoom={ 15 }
