@@ -20,7 +20,7 @@ export default class Dashboard extends Component {
     const { user: { firstname, signedIn } } = this.props;
     return signedIn ?
     <h3 className='dash-welcome'>{ firstname }'s DASHBOARD</h3> :
-    <h3 className='dash-welcome'>Please Login</h3>;
+    <h3 className='dash-welcome please-login'>Please Login</h3>;
   }
   addNewRide() {
     const { user: { signedIn } } = this.props;
@@ -65,28 +65,30 @@ export default class Dashboard extends Component {
           handleSignOut={ userSignOut }
           history={ history }
         />
-        { addNewRide }
-        { userSignedIn }
-        <table className='upcoming-rides'>
-          <thead>
-            <tr>
-              <th
-                colSpan={ 3 }
-                className='table-main-header'
-              >
-                Upcoming Rides
-              </th>
-            </tr>
-            <tr className='ride-row'>
-              <th className='ride-row-header ride-details'>Details</th>
-              <th className='ride-row-header'>Status</th>
-              <th className='ride-row-header'>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            { userRides }
-          </tbody>
-        </table>
+        <section className='dash-wrapper'>
+          { addNewRide }
+          { userSignedIn }
+          <table className='upcoming-rides'>
+            <thead>
+              <tr>
+                <th
+                  colSpan={ 3 }
+                  className='table-main-header'
+                  >
+                    Upcoming Rides
+                  </th>
+                </tr>
+                <tr className='ride-row'>
+                  <th className='ride-row-header ride-details'>Details</th>
+                  <th className='ride-row-header'>Status</th>
+                  <th className='ride-row-header'>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                { userRides }
+              </tbody>
+            </table>
+        </section>
       </div>
     );
   }

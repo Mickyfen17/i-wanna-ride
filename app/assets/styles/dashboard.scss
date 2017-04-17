@@ -1,8 +1,13 @@
 .dashboard {
   color: #FFF;
-  .upcoming-rides {
+  .dash-wrapper {
+    position: relative;
     width: 90%;
+    max-width: 800px;
     margin: 0 auto;
+  }
+  .upcoming-rides {
+    width: 100%;
     background: rgba(0,0,0, 0.7)
   }
   .table-main-header {
@@ -36,15 +41,19 @@
   }
   .dash-welcome {
     margin-top: 20px;
-    padding-left: 25px;
+    padding: 20px;
     color: #000;
     font-size: 1.2em;
     font-weight: 700;
     font-family: $main-header-font;
   }
+  .please-login {
+    text-align: center;
+  }
   .add-ride-button {
-    float: right;
-    margin: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
     padding: 8px;
     border: 1px solid #c1ef2d;
     background: rgba(0,0,0,0.7);
@@ -52,7 +61,6 @@
     font-weight: 700;
     font-size: 0.9em;
     font-family: $main-header-font;
-    text-decoration: none;
     cursor: pointer;
     @include border-box;
   }
