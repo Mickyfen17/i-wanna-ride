@@ -52,47 +52,49 @@ export default class CreateRide extends Component {
           handleSignOut={ userSignOut }
           history={ history }
         />
-        <article className='create-ride-card'>
-          <h1>CREATE RIDE</h1>
-          <PlacesSearch
-            name='location'
-            handleChange={ this.handleLocation }
-          />
-          <select
-            className='user-input select-input'
-            name='experience'
-            value={ experience }
-            onChange={ this.handleUserInput }
-          >
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-            <option value="Expert">Expert</option>
-          </select>
-          <Input
-            className='user-input'
-            placeholder='Date'
-            type='date'
-            name='ridedate'
-            value={ ridedate }
-            handleChange={ this.handleUserInput }
-          />
-          <select
-            className='user-input select-input'
-            name='ridetime'
-            value={ ridetime }
-            onChange={ this.handleUserInput }
-          >
-            <option value="Morning">Morning</option>
-            <option value="Afternoon">Afternoon</option>
-            <option value="Evening">Evening</option>
-          </select>
-          <button
-            className='submit-button'
-            onClick={ this.handleNewRide }>
-            Submit
-          </button>
-        </article>
+        <div className='form-wrapper'>
+          <article className='create-ride-card'>
+            <h1>CREATE RIDE</h1>
+            <PlacesSearch
+              name='location'
+              handleChange={ this.handleLocation }
+            />
+            <select
+              className='user-input select-input'
+              name='experience'
+              value={ experience }
+              onChange={ this.handleUserInput }
+              >
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Expert">Expert</option>
+            </select>
+            <Input
+              className='user-input'
+              placeholder='Date'
+              type='date'
+              name='ridedate'
+              value={ ridedate }
+              handleChange={ this.handleUserInput }
+            />
+            <select
+              className='user-input select-input'
+              name='ridetime'
+              value={ ridetime }
+              onChange={ this.handleUserInput }
+              >
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+            </select>
+            <button
+              className='submit-button'
+              onClick={ this.handleNewRide }>
+              Submit
+            </button>
+          </article>
+        </div>
       </div>
     );
   }
