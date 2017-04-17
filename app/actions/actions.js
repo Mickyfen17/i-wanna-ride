@@ -30,12 +30,18 @@ export const signInFetch = (username, password) => {
 };
 
 export const createNewUserFetch = (firstname, lastname, location, experience, email, username, password) => {
-  return () =>
+  return dispatch =>
   fetch('http://localhost:3000/api/users/new', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ firstname, lastname, location, experience, email, username, password }),
-  });
+  })
+  .then(response =>
+    response.json(),
+  )
+  .then(json =>
+    dispatch(userSignIn(json.data)),
+  );
 };
 
 export const addNewRide = (id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime) => {
