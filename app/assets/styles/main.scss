@@ -24,9 +24,3 @@ body {
     @include background-cover;
   }
 }
-@media screen and (min-width: 1000px) {
-  body {
-    background: $large-desktop-background-img;
-    @include background-cover;
-  }
-}
