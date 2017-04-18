@@ -6,7 +6,6 @@
   }
   .create-user-link {
     display: block;
-    margin-top: 10px;
     padding: 10px 0;
     text-align: center;
     color: #c1ef2d;
@@ -22,9 +21,10 @@
       border: 1px solid #c1ef2d;
     }
   }
-  h4 {
-    text-align: center;
-    color: red;
-    font-weight: 700;
-  }
+}
+.error-text {
+  margin: 10px 0;
+  text-align: center;
+  color: red;
+  font-weight: 700;
 }

@@ -15,15 +15,29 @@ export default class Login extends Component  {
     this.handleUserInput = this.handleUserInput.bind(this);
   }
 
+  checkInputFields() {
+    const { username, password } = this.state;
+    if (!username && !password) {
+      return true;
+    }
+  }
+
   handleUserInput(e) {
     const { value, name } = e.target;
     this.setState({
       [name]: value,
     });
   }
+
   handleUserSubmit() {
     const { username, password } = this.state;
     const { userSignIn, signInFetch, history } = this.props;
+    if (this.checkInputFields()) {
+      this.setState({
+        error: 'Please fill out all inout fields',
+      });
+      return;
+    }
     signInFetch(username, password)
     .then((response) => {
       if (!response.ok) {
@@ -75,7 +89,7 @@ export default class Login extends Component  {
               onClick={ () => this.handleUserSubmit() } >
               Login
             </button>
-            { error !== '' && <h4>{ error }</h4> }
+            { error !== '' && <h4 className='error-text'>{ error }</h4> }
             <Link to={ '/create-user' } className='create-user-link' >
               Create New User
             </Link>
