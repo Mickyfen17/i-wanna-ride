@@ -16,6 +16,7 @@ export default class CreateUser extends Component  {
       email: '',
       username: '',
       password: '',
+      error: '',
     };
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
@@ -29,9 +30,20 @@ export default class CreateUser extends Component  {
     });
   }
 
+  validateEmail(email) {
+    const valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return valid.test(email);
+  }
+
   handleUserCreate() {
     const { createNewUserFetch, history } = this.props;
     const { firstname, lastname, location, experience, email, username, password } = this.state;
+    if (!this.validateEmail(email)) {
+      this.setState({
+        error: 'Please enter a valid email',
+      });
+      return;
+    }
     createNewUserFetch(firstname, lastname, location, experience, email, username, password)
     .then(() => {
       history.push('/dashboard');
@@ -44,7 +56,7 @@ export default class CreateUser extends Component  {
   }
 
   render() {
-    const { firstname, lastname, experience, email, username, password } = this.state;
+    const { firstname, lastname, experience, email, username, password, error } = this.state;
     const { user: { signedIn } } = this.props;
     return (
       <div>
@@ -115,6 +127,7 @@ export default class CreateUser extends Component  {
               onClick={ this.handleUserCreate } >
               Submit
             </button>
+            { error !== '' && <h4 className='error-text'>{ error }</h4> }
             <h6>Already have an account?</h6>
             <Link to={ '/login' } className='login-user-link' >
               Login
