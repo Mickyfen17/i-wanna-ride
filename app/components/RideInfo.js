@@ -18,9 +18,6 @@ export default class RideInfo extends Component {
   componentWillMount() {
     const { userID, date, time, experience, location, fetchMatchedRides } = this.props;
     fetchMatchedRides(userID, date, time, experience, location)
-    .then(response =>
-      response.json(),
-    )
     .then(json =>
       this.setState({
         matchedRides: [...json.data],

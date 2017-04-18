@@ -68,7 +68,10 @@ export const fetchMatchedRides = (userID, date, time, experience, location) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ userID, date, time, experience, location }),
-  });
+  })
+  .then(response =>
+    response.json(),
+  );
 };
 
 export const fetchAllUserRides = (userID) => {
