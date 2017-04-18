@@ -18,9 +18,6 @@ export default class RideInfo extends Component {
   componentWillMount() {
     const { userID, date, time, experience, location, fetchMatchedRides } = this.props;
     fetchMatchedRides(userID, date, time, experience, location)
-    .then(response =>
-      response.json(),
-    )
     .then(json =>
       this.setState({
         matchedRides: [...json.data],
@@ -37,25 +34,19 @@ export default class RideInfo extends Component {
   }
 
   fetchUpdatedRides() {
-    fetch(`http://localhost:3000/api/users/${this.props.userID}/rides`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-      this.props.fetchUserRides(json.data);
-    });
+    this.props.fetchAllUserRides(this.props.userID);
   }
 
   createMapOptions(maps) {
     return {
       zoomControlOptions: {
         position: maps.ControlPosition.RIGHT_BOTTOM,
-        style: maps.ZoomControlStyle.SMALL
+        style: maps.ZoomControlStyle.SMALL,
       },
       mapTypeControlOptions: {
-        position: maps.ControlPosition.TOP_RIGHT
+        position: maps.ControlPosition.TOP_RIGHT,
       },
-      mapTypeControl: true
+      mapTypeControl: true,
     };
   }
 
@@ -69,20 +60,21 @@ export default class RideInfo extends Component {
     const { showMatchDetails, matchedRides } = this.state;
     return (
     <Modal
+      className='ride-match-modal'
       isOpen={ showMatchDetails }
       contentLabel='matched-rider-info'
     >
       <article className='ride-info-wrapper'>
-        <h1>Rider Infomation</h1>
+        <h1 className='modal-header'>Rider Infomation</h1>
         {
           matchedRides.map((ride, i) =>
             <div
               key={ i }
               className='ride-location'
             >
-              <h2>{ ride.firstname }</h2>
-              <h2>{ ride.email }</h2>
-              <h2>{ ride.location }</h2>
+              <h2 className='modal-name'>{ ride.firstname }</h2>
+              <a href={`mailto:${ride.email}`} className='modal-email'>{ ride.email }</a>
+              <h2 className='modal-location'>{ ride.location }</h2>
               <GoogleMapReact
                 center={ [parseFloat(ride.latitude, 10), parseFloat(ride.longitude, 10)] }
                 zoom={ 15 }

@@ -12,7 +12,21 @@
 
 body {
   min-height: 100vh;
-  background-size: cover;
   background: $mobile-background-img;
   font-family: $main-content-font;
+  @include background-cover;
+}
+
+/*MEDIA QUERIES*/
+@media screen and (min-width: 700px) {
+  body {
+    background: $small-desktop-background-img;
+    @include background-cover;
+  }
+}
+@media screen and (min-width: 1000px) {
+  body {
+    background: $large-desktop-background-img;
+    @include background-cover;
+  }
 }

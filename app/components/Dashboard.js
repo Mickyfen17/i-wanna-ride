@@ -4,24 +4,19 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import RideInfoContainer from '../containers/RideInfoContainer';
 
-
 export default class Dashboard extends Component {
 
   componentWillMount() {
-    fetch(`http://localhost:3000/api/users/${this.props.user.id}/rides`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-      this.props.fetchUserRides(json.data);
-    });
+    this.props.fetchAllUserRides(this.props.user.id);
   }
+
   userSignedIn() {
     const { user: { firstname, signedIn } } = this.props;
     return signedIn ?
     <h3 className='dash-welcome'>{ firstname }'s DASHBOARD</h3> :
-    <h3 className='dash-welcome'>Please Login</h3>;
+    <h3 className='dash-welcome please-login'>Please Login</h3>;
   }
+
   addNewRide() {
     const { user: { signedIn } } = this.props;
     return (
@@ -34,7 +29,7 @@ export default class Dashboard extends Component {
 
   displayUserRides() {
     const { user: { signedIn } } = this.props;
-    if(signedIn) {
+    if (signedIn) {
       return this.props.rides.map((ride) => {
         const { id, user_id, ridedate, ridetime, experience, location } = ride;
         return (
@@ -65,28 +60,30 @@ export default class Dashboard extends Component {
           handleSignOut={ userSignOut }
           history={ history }
         />
-        { addNewRide }
-        { userSignedIn }
-        <table className='upcoming-rides'>
-          <thead>
-            <tr>
-              <th
-                colSpan={ 3 }
-                className='table-main-header'
-              >
-                Upcoming Rides
-              </th>
-            </tr>
-            <tr className='ride-row'>
-              <th className='ride-row-header ride-details'>Details</th>
-              <th className='ride-row-header'>Status</th>
-              <th className='ride-row-header'>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            { userRides }
-          </tbody>
-        </table>
+        <section className='dash-wrapper'>
+          { addNewRide }
+          { userSignedIn }
+          <table className='upcoming-rides'>
+            <thead>
+              <tr>
+                <th
+                  colSpan={ 3 }
+                  className='table-main-header'
+                  >
+                    Upcoming Rides
+                  </th>
+                </tr>
+                <tr className='ride-row'>
+                  <th className='ride-row-header ride-details'>Details</th>
+                  <th className='ride-row-header'>Status</th>
+                  <th className='ride-row-header'>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                { userRides }
+              </tbody>
+            </table>
+        </section>
       </div>
     );
   }
