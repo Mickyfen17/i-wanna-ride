@@ -1,5 +1,9 @@
+.home-headers-wrapper {
+  background: rgba(255,255,255,0.6);
+}
+
 .home-page-header {
-  padding: 35px 0;
+  padding: 35px 0 15px 0;
   text-align: center;
   font-size: 2.6em;
   color: #000;
@@ -49,7 +53,8 @@
   transition: all 500ms;
   -webkit-transition: all 500ms;
   &:hover {
-    background: transparent;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.7);
   }
 }
 

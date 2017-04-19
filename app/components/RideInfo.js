@@ -65,7 +65,7 @@ export default class RideInfo extends Component {
       contentLabel='matched-rider-info'
     >
       <article className='ride-info-wrapper'>
-        <h1 className='modal-header'>Rider Infomation</h1>
+        <h1 className='modal-header'>Matched Riders</h1>
         {
           matchedRides.map((ride, i) =>
             <div

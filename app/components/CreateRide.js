@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Header from './Header';
 import Input from './Input';
@@ -94,6 +95,9 @@ export default class CreateRide extends Component {
               Submit
             </button>
           </article>
+          <Link to={ '/dashboard' } className='dashboard-back-link' >
+            Back
+          </Link>
         </div>
       </div>
     );

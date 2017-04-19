@@ -6,3 +6,18 @@
     @include form-header;
   }
 }
+.dashboard-back-link {
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+  color: #FFF;
+  font-family: $main-header-font;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  &:hover {
+    color: #c1ef2d;
+  }
+}
+
