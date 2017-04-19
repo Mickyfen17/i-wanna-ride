@@ -5,7 +5,7 @@ import Input from '../../components/Input';
 
 describe('testing Input', () => {
 
-  it('should accpet props', () => {
+  it('should accept props', () => {
     const wrapper = shallow(
       <Input
         className='test-class'

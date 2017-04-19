@@ -5,7 +5,7 @@ import MapMarker from '../../components/MapMarker';
 
 describe('testing MapMarker', () => {
 
-  it('should accpet props', () => {
+  it('should accept props', () => {
     const wrapper = mount(
       <MapMarker
         location='Denver,CO'
