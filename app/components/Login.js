@@ -34,7 +34,7 @@ export default class Login extends Component  {
     const { userSignIn, signInFetch, history } = this.props;
     if (this.checkInputFields()) {
       this.setState({
-        error: 'Please fill out all inout fields',
+        error: 'Please fill out all input fields',
       });
       return;
     }
