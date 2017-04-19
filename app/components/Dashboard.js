@@ -61,8 +61,10 @@ export default class Dashboard extends Component {
           history={ history }
         />
         <section className='dash-wrapper'>
-          { addNewRide }
-          { userSignedIn }
+          <div className='dash-header'>
+            { addNewRide }
+            { userSignedIn }
+          </div>
           <table className='upcoming-rides'>
             <thead>
               <tr>
