@@ -25,7 +25,7 @@ describe('testing CreateRide', () => {
     const wrapper = shallow( <CreateRide user={ defaultUser } /> )
 
     expect(wrapper.state())
-    .toEqual({ 'experience': 'Beginner', 'latitude': '', 'location': '', 'longitude': '', 'ridedate': '', 'ridetime': 'Morning'})
+    .toEqual({ 'error': '', 'experience': 'Beginner', 'latitude': '', 'location': '', 'longitude': '', 'ridedate': '', 'ridetime': 'Morning'})
   })
 
   it('be able to add text to inputs and update state', () => {
@@ -35,8 +35,6 @@ describe('testing CreateRide', () => {
       </BrowserRouter>,
     );
 
-    console.log(wrapper.debug());
-
     const createRideWrapper = wrapper.find(CreateRide);
 
     const locationInput = wrapper.find('.geosuggest__input');
@@ -44,17 +42,6 @@ describe('testing CreateRide', () => {
     const dateInput = wrapper.find('input[name="ridedate"]');
     const timeInput = wrapper.find('select[name="ridetime"]');
 
-    console.log(locationInput);
-    // console.log(experienceInput.debug());
-    // console.log(dateInput.debug());
-    // console.log(timeInput.debug());
-
-    locationInput.simulate('change', {
-      target: {
-        name: 'location',
-        value: 'Denver',
-      },
-    });
     dateInput.simulate('change', {
       target: {
         name: 'ridedate',
@@ -62,10 +49,9 @@ describe('testing CreateRide', () => {
       },
     });
 
-    console.log(createRideWrapper.node.state);
 
     expect(createRideWrapper.node.state)
-    .toEqual({ 'location': 'Denver', 'experience': 'Beginner', 'ridedate': '01/01/2018', 'ridetime': 'Morning'})
+    .toEqual({ 'error': '', 'experience': 'Beginner', 'latitude': '', 'location': '', 'longitude': '', 'ridedate': '01/01/2018', 'ridetime': 'Morning' })
   });
 
 });

@@ -105,7 +105,7 @@ export default class CreateUser extends Component  {
               name='experience'
               value={ experience }
               onChange={ this.handleUserInput }
-              >
+            >
               <option value="Beginner">Beginner</option>
               <option value="Intermediate">Intermediate</option>
               <option value="Advanced">Advanced</option>

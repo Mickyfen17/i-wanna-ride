@@ -80,11 +80,11 @@ export default class CreateRide extends Component {
               name='experience'
               value={ experience }
               onChange={ this.handleUserInput }
-              >
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-                <option value="Expert">Expert</option>
+            >
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Expert">Expert</option>
             </select>
             <Input
               className='user-input'
@@ -99,10 +99,10 @@ export default class CreateRide extends Component {
               name='ridetime'
               value={ ridetime }
               onChange={ this.handleUserInput }
-              >
-                <option value="Morning">Morning</option>
-                <option value="Afternoon">Afternoon</option>
-                <option value="Evening">Evening</option>
+            >
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
+              <option value="Evening">Evening</option>
             </select>
             <button
               className='submit-button'
