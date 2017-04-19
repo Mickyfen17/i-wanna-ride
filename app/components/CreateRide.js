@@ -15,6 +15,7 @@ export default class CreateRide extends Component {
       experience: 'Beginner',
       ridedate: '',
       ridetime: 'Morning',
+      error: '',
     };
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
@@ -34,16 +35,30 @@ export default class CreateRide extends Component {
       longitude: lng,
     });
   }
+
+  handleEmptyInputs() {
+    const keys = Object.keys(this.state);
+    return keys.some(key =>
+      key !== 'error' && this.state[key] === '',
+    );
+  }
+
   handleNewRide() {
     const { user: { id, firstname, email }, addNewRide, history } = this.props;
     const { location, latitude, longitude, experience, ridedate, ridetime } = this.state;
+    if(this.handleEmptyInputs()) {
+      this.setState({
+        error: 'Input field empty'
+      })
+      return;
+    }
     addNewRide(id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime)
     .then(() => {
       history.push('/dashboard');
     });
   }
   render() {
-    const { experience, ridedate, ridetime } = this.state;
+    const { experience, ridedate, ridetime, error } = this.state;
     const { user: { signedIn }, userSignOut, history } = this.props;
     return (
       <div className='create-ride'>
@@ -94,6 +109,7 @@ export default class CreateRide extends Component {
               onClick={ this.handleNewRide }>
               Submit
             </button>
+            { error !== '' && <h4 className='error-text'>{ error }</h4> }
           </article>
           <Link to={ '/dashboard' } className='dashboard-back-link' >
             Back
