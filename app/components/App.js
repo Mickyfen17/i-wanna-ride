@@ -7,7 +7,7 @@ import CreateUserContainer from '../containers/CreateUserContainer';
 import DashboardContainer from '../containers/DashboardContainer';
 import CreateRideContainer from '../containers/CreateRideContainer';
 
-const App = ({ user: { signedIn } }) => {
+const App = ({ user: { signedIn }, history }) => {
   return (
     <div>
       <Route exact path='/' component={ Home } />
@@ -24,7 +24,7 @@ const App = ({ user: { signedIn } }) => {
         !signedIn ? (
           <Redirect to="/login"/>
         ) : (
-          <CreateRideContainer />
+          <CreateRideContainer history={ history } />
         )
       )}/>
     </div>
