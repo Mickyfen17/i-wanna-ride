@@ -30,6 +30,13 @@ export default class CreateUser extends Component  {
     });
   }
 
+  handleEmptyInputs() {
+    const keys = Object.keys(this.state);
+    return keys.some(key =>
+      key !== 'error' && this.state[key] === '',
+    );
+  }
+
   validateEmail(email) {
     const valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return valid.test(email);
@@ -42,6 +49,12 @@ export default class CreateUser extends Component  {
       this.setState({
         error: 'Please enter a valid email',
       });
+      return;
+    }
+    if(this.handleEmptyInputs()) {
+      this.setState({
+        error: 'Input field empty'
+      })
       return;
     }
     createNewUserFetch(firstname, lastname, location, experience, email, username, password)
