@@ -73,14 +73,14 @@ describe('testing Login', () => {
   //     status: 500,
   //     body: {},
   //   });
-  //   const wrapper = mount(
-  //     <BrowserRouter>
-  //       <Login user={ defaultUser } />
-  //     </BrowserRouter>,
+  //   const wrapper = shallow(
+  //       <Login user={ defaultUser } signInFetch={ jest.fn() }/>
   //   );
   //
-  //   const usernameInput = wrapper.find('input[name="username"]');
+  //   const usernameInput = wrapper.find(Input).first().dive();
   //   const submitBtn = wrapper.find('button');
+  //
+  //   console.log(wrapper.state())
   //
   //   usernameInput.simulate('change', {
   //     target: {
@@ -88,10 +88,16 @@ describe('testing Login', () => {
   //       value: 'Mike',
   //     },
   //   });
+  //   console.log(wrapper.state())
   //
-  //   console.log(usernameInput.debug());
+  //   const handleUserSubmit = jest.fn();
+  //
   //   console.log(submitBtn.debug());
-  //   console.log(wrapper.debug());
+  //
+  //   submitBtn.simulate('click', {
+  //     onClick: handleUserSubmit,
+  //   });
+  //   // submitBtn.simulate('click');
   //
   //   await wrapper.update();
   //
