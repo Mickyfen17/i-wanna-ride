@@ -6,6 +6,7 @@ import LoginContainer from '../containers/LoginContainer';
 import CreateUserContainer from '../containers/CreateUserContainer';
 import DashboardContainer from '../containers/DashboardContainer';
 import CreateRideContainer from '../containers/CreateRideContainer';
+import Footer from '../components/Footer';
 
 const App = ({ user: { signedIn }, history }) => {
   return (
@@ -27,6 +28,7 @@ const App = ({ user: { signedIn }, history }) => {
           <CreateRideContainer history={ history } />
         )
       )}/>
+      <Footer />
     </div>
   );
 };
