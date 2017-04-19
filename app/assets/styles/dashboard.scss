@@ -1,14 +1,17 @@
 .dashboard {
   color: #FFF;
   .dash-wrapper {
-    position: relative;
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
   }
+  .dash-header {
+    position: relative;
+    background: rgba(255,255,255, 0.5);
+  }
   .upcoming-rides {
     width: 100%;
-    background: rgba(0,0,0, 0.7)
+    background: rgba(0,0,0, 0.8)
   }
   .table-main-header {
     padding: 15px 10px;
@@ -40,28 +43,44 @@
     text-align: left;
   }
   .dash-welcome {
+    width: 65%;
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px 10px;
     color: #000;
     font-size: 1.2em;
     font-weight: 700;
     font-family: $main-header-font;
   }
   .please-login {
+    width: inherit;
     text-align: center;
   }
   .add-ride-button {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 5px;
     padding: 8px;
     border: 1px solid #c1ef2d;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.8);
     color: #c1ef2d;
     font-weight: 700;
     font-size: 0.9em;
     font-family: $main-header-font;
     cursor: pointer;
     @include border-box;
+  }
+}
+
+/*MEDIA QUERIES*/
+@media screen and (min-width: 700px) {
+  .dashboard {
+    .dash-welcome {
+      width: 80%;
+      font-size: 1.8em;
+    }
+    .add-ride-button {
+      top: 15px;
+      right: 15px;
+    }
   }
 }
