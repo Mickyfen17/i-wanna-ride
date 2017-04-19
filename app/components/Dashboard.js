@@ -10,13 +10,6 @@ export default class Dashboard extends Component {
     this.props.fetchAllUserRides(this.props.user.id);
   }
 
-  userSignedIn() {
-    const { user: { firstname, signedIn } } = this.props;
-    return signedIn ?
-    <h3 className='dash-welcome'>{ firstname }'s DASHBOARD</h3> :
-    <h3 className='dash-welcome please-login'>Please Login</h3>;
-  }
-
   addNewRide() {
     const { user: { signedIn } } = this.props;
     return (
@@ -48,9 +41,8 @@ export default class Dashboard extends Component {
     }
   }
   render() {
-    const { user: { signedIn }, userSignOut, history } = this.props;
+    const { user: { signedIn, firstname }, userSignOut, history } = this.props;
     const userRides = this.displayUserRides();
-    const userSignedIn = this.userSignedIn();
     const addNewRide = this.addNewRide();
     return (
       <div className='dashboard'>
@@ -63,7 +55,7 @@ export default class Dashboard extends Component {
         <section className='dash-wrapper'>
           <div className='dash-header'>
             { addNewRide }
-            { userSignedIn }
+            <h3 className='dash-welcome'>{ firstname }'s DASHBOARD</h3>
           </div>
           <table className='upcoming-rides'>
             <thead>
