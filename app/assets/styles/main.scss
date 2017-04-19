@@ -11,7 +11,13 @@
 @import 'footer';
 @import 'places-search';
 
+
+#main {
+  padding-bottom: 10px;
+}
+
 body {
+  position: relative;
   min-height: 100vh;
   background: $mobile-background-img;
   font-family: $main-content-font;

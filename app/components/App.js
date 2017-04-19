@@ -18,7 +18,7 @@ const App = ({ user: { signedIn }, history }) => {
         !signedIn ? (
           <Redirect to="/login"/>
         ) : (
-          <DashboardContainer />
+          <DashboardContainer history={ history } />
         )
       )}/>
       <Route path="/create-ride" render={() => (
