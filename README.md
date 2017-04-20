@@ -41,7 +41,8 @@ Upcoming features;
 * `create db` - if you don't have postgresSQl go install it here: http://postgresapp.com/
 * Follow the installation instructions for postgresSQl from website
 * Start postgresSQl server
-* `npm install`  
+* `npm install`
+* `npm start`
 
 ## Reflection
   - This project was a personal driven project and our final project for Module 3 of Turing School
