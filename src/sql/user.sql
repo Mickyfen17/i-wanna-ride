@@ -31,4 +31,4 @@ INSERT INTO users (firstname, lastname, location, experience, username, password
   VALUES ('Mike', 'Fenwick', 'Denver', 'Intermediate', 'mikefen', 'password', 'abc@abc.com');
 
 INSERT INTO rides (firstname, user_id, email, location, latitude, longitude, experience, ridedate, ridetime)
-  VALUES ('Mike', 1, 'abc@abc.com', 'Denver', '39.7392358', '-104.990251', 'Beginner', '2017-01-01', 'Morning');
+  VALUES ('Mike', 1, 'abc@abc.com', 'Wilder Ranch State Park, Coast Road, Santa Cruz, CA, United States', '36.9609751', '-122.08313980000003', 'Beginner', '2017-07-07', 'Morning');
