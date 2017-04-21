@@ -15,6 +15,12 @@ const Home = () =>  {
           Login / Sign Up
         </button>
       </Link>
+      <Link to={'/about'} className='link-to-login' >
+        <button
+          className='home-page-button'>
+          About
+        </button>
+      </Link>
     </div>
   );
 };
