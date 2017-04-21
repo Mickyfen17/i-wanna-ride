@@ -17,13 +17,16 @@ Project is currently under development. Current functionality is;
 Upcoming features;
 
 * Secure login
-* Ability to edit user profile
+* Edit user profile
 * Add user image to profile
+* Add gender to profile
+* Allow matches based on gender
 * Alter the format of the input date
-* Ability to match rides by radius instead of exact location match
-* Ability to know when a ride date has passed and to move ride into past rides section
+* Match rides by radius instead of exact location match
+* Detect when a ride date has passed and move it into a past rides section
 * Ride rating system
 * Pull in trail information
+* Allow users to flag preferred trails search user database for riders who ride the same preferred trails and contact them directly.
 * Add more activities like skiing, running, rock climbing, road cycling
 
 ## Project Screen Shot(s)
@@ -41,19 +44,20 @@ Upcoming features;
 * `create db` - if you don't have postgresSQl go install it here: http://postgresapp.com/
 * Follow the installation instructions for postgresSQl from website
 * Start postgresSQl server
-* `npm install`  
+* `npm install`
+* `npm start`
 
 ## Reflection
-  - This project was a personal driven project and our final project for Module 3 of Turing School
-  - I set out to build an application to match mountain bike riders who want to ride a trail but don't want to ride it alone. It allows users to add date location they want to ride along with a day and time and will check the system for another rider with the matching details.
-  - This project was only my second experience with Redux so I was still a little unsure of the whole Redux cycle. I also decided to create my own backend using node, express and SQL after a brief introduction. Creating my own backend db was a challenge that I enjoyed and something that I look forward to working on again.
+  - **I used SCSS, ES6, webpack, React, Redux, React Router, Node, Express JS and SQL which allowed my to build the application that I first envisioned.**
+  - This project was a personal driven project and our final project for Module 3 at Turing School
+  - I set out to build an application to match mountain bike riders who want to ride a trail but don't want to ride it alone. The app allows users to add the date, time and location where they want to ride and will then check the system for other riders with matching details.
+  - This project was only my second experience with Redux so I was still a bit unsure of the whole Redux cycle. I also decided to create my own backend using Node, Express and SQL after a brief introduction. Creating my own backend database was a challenge that I enjoyed and something that I look forward to working on again.
   - What were some unexpected obstacles?
-      - The initial set up of webpack was a little challenging.  
+      - The initial set up of webpack was a bit challenging.  
   - What tools did you use to implement this project?
-      - I wanted to become more comfortable with webpack and building out my own backend db therefore decided to build my own project from the start over using create-react-app.
+      - I wanted to become more comfortable with webpack and building out my own backend db therefore I decided to build my own project from the start versus using create-react-app.
       - Although not really needed on a project of this size, I decide to use Redux, again to just become more familiar with this framework
       - I also chose to use SCSS over CSS to gain more practice and be able to utilize mixins and variables.
-      - In the end I used SCSS, es6, webpack, React, Redux, React Router, Node, Express JS and SQL which allowed my to build the application that I first envisioned.
 
 ## Resources
   - NPM packages used within this project
