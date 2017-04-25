@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import PlacesSearch from '../../components/PlacesSearch';
+import PlacesSearch from '../../app/components/PlacesSearch';
 
 describe('testing PlacesSearch', () => {
 

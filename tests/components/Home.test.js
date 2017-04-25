@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
 
-import Home from '../../components/Home';
+import Home from '../../app/components/Home';
 
 describe('testing Home', () => {
 

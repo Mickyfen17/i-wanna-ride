@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import fetchMock from 'fetch-mock';
 
 import configureMockStore from 'redux-mock-store';
-import { userSignIn, userSignOut, userRidesAction } from '../../actions/actions';
+import { userSignIn, userSignOut, userRidesAction } from '../../app/actions/actions';
 
 const store = configureMockStore()();
 

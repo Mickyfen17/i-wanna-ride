@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import Input from '../../components/Input';
+import Input from '../../app/components/Input';
 
 describe('testing Input', () => {
 

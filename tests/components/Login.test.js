@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import fetchMock from 'fetch-mock';
 import { BrowserRouter } from 'react-router-dom'
-import Login from '../../components/Login';
-import Input from '../../components/Input';
+import Login from '../../app/components/Login';
+import Input from '../../app/components/Input';
 
 
 describe('testing Login', () => {

@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { Route } from 'react-router-dom';
 
 
-import App from '../../components/App';
+import App from '../../app/components/App';
 
 describe('testing App', () => {
   const defaultUser = {
@@ -13,6 +13,6 @@ describe('testing App', () => {
   it('should contain 5 Routes', () => {
     const wrapper = shallow(<App user={ defaultUser } />);
 
-    expect(wrapper.find(Route).length).toEqual(5);
+    expect(wrapper.find(Route).length).toEqual(6);
   });
 });

@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import fetchMock from 'fetch-mock';
 import { BrowserRouter } from 'react-router-dom'
-import CreateRide from '../../components/CreateRide';
-import Input from '../../components/Input';
+import CreateRide from '../../app/components/CreateRide';
+import Input from '../../app/components/Input';
 
 
 describe('testing CreateRide', () => {

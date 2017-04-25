@@ -1,5 +1,5 @@
-import ridesReducer from '../../reducers/ridesReducer';
-import rootReducer from '../../reducers/index';
+import ridesReducer from '../../app/reducers/ridesReducer';
+import rootReducer from '../../app/reducers/index';
 
 const initialState = [];
 

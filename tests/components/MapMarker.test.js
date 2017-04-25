@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import MapMarker from '../../components/MapMarker';
+import MapMarker from '../../app/components/MapMarker';
 
 describe('testing MapMarker', () => {
 
