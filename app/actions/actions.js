@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 import { USER_SIGNED_IN, USER_SIGNED_OUT, FETCH_USER_RIDES } from './action_types';
 
 export const userSignIn = (user) => {
