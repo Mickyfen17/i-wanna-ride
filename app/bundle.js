@@ -29676,7 +29676,7 @@
 	
 	var signInFetch = exports.signInFetch = function signInFetch(username, password) {
 	  return function () {
-	    return fetch('http://localhost:3000/api/users', {
+	    return fetch('/api/users', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({ username: username, password: password })
@@ -29686,7 +29686,7 @@
 	
 	var createNewUserFetch = exports.createNewUserFetch = function createNewUserFetch(firstname, lastname, location, experience, email, username, password) {
 	  return function (dispatch) {
-	    return fetch('http://localhost:3000/api/users/new', {
+	    return fetch('/api/users/new', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({ firstname: firstname, lastname: lastname, location: location, experience: experience, email: email, username: username, password: password })
@@ -29700,7 +29700,7 @@
 	
 	var addNewRide = exports.addNewRide = function addNewRide(id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime) {
 	  return function () {
-	    return fetch('http://localhost:3000/api/rides/new', {
+	    return fetch('/api/rides/new', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({ user_id: id, firstname: firstname, email: email, location: location, latitude: latitude, longitude: longitude, experience: experience, ridedate: ridedate, ridetime: ridetime })
@@ -29710,7 +29710,7 @@
 	
 	var deleteRide = exports.deleteRide = function deleteRide(user_id, ride_id) {
 	  return function () {
-	    return fetch('http://localhost:3000/api/users/' + user_id + '/rides/' + ride_id, {
+	    return fetch('/api/users/' + user_id + '/rides/' + ride_id, {
 	      method: 'DELETE',
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({ user_id: user_id, ride_id: ride_id })
@@ -29720,7 +29720,7 @@
 	
 	var fetchMatchedRides = exports.fetchMatchedRides = function fetchMatchedRides(userID, date, time, experience, location) {
 	  return function () {
-	    return fetch('http://localhost:3000/api/matchrides', {
+	    return fetch('/api/matchrides', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({ userID: userID, date: date, time: time, experience: experience, location: location })
@@ -29732,7 +29732,7 @@
 	
 	var fetchAllUserRides = exports.fetchAllUserRides = function fetchAllUserRides(userID) {
 	  return function (dispatch) {
-	    return fetch('http://localhost:3000/api/users/' + userID + '/rides').then(function (response) {
+	    return fetch('/api/users/' + userID + '/rides').then(function (response) {
 	      return response.json();
 	    }).then(function (json) {
 	      return dispatch(userRidesAction(json.data));

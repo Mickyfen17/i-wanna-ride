@@ -22,7 +22,7 @@ export const userRidesAction = (rides) => {
 
 export const signInFetch = (username, password) => {
   return () =>
-    fetch('http://localhost:3000/api/users', {
+    fetch('/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -31,7 +31,7 @@ export const signInFetch = (username, password) => {
 
 export const createNewUserFetch = (firstname, lastname, location, experience, email, username, password) => {
   return dispatch =>
-  fetch('http://localhost:3000/api/users/new', {
+  fetch('/api/users/new', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ firstname, lastname, location, experience, email, username, password }),
@@ -46,7 +46,7 @@ export const createNewUserFetch = (firstname, lastname, location, experience, em
 
 export const addNewRide = (id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime) => {
   return () =>
-  fetch('http://localhost:3000/api/rides/new', {
+  fetch('/api/rides/new', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ user_id: id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime }),
@@ -55,7 +55,7 @@ export const addNewRide = (id, firstname, email, location, latitude, longitude, 
 
 export const deleteRide = (user_id, ride_id) => {
   return () =>
-  fetch(`http://localhost:3000/api/users/${user_id}/rides/${ride_id}`, {
+  fetch(`/api/users/${user_id}/rides/${ride_id}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ user_id, ride_id }),
@@ -64,7 +64,7 @@ export const deleteRide = (user_id, ride_id) => {
 
 export const fetchMatchedRides = (userID, date, time, experience, location) => {
   return () =>
-  fetch('http://localhost:3000/api/matchrides', {
+  fetch('/api/matchrides', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ userID, date, time, experience, location }),
@@ -76,7 +76,7 @@ export const fetchMatchedRides = (userID, date, time, experience, location) => {
 
 export const fetchAllUserRides = (userID) => {
   return dispatch =>
-  fetch(`http://localhost:3000/api/users/${userID}/rides`)
+  fetch(`/api/users/${userID}/rides`)
   .then(response =>
     response.json(),
   )
