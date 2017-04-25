@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
 const bodyParser = require('body-parser');
-const users = require('./users');
+const users = require('./routes/users');
 
 const port = (process.env.PORT || 3000);
 const app = express();
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
-  const config = require('../webpack.config.js');
+  const config = require('./webpack.config.js');
   const compiler = webpack(config);
 
   app.use(webpackHotMiddleware(compiler));
@@ -25,12 +25,13 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-app.use('/assets', express.static(path.join(__dirname, '../app/assets')));
+app.use(express.static('app'));
 
-app.get('/', (req, res) => { res.sendFile(path.join(__dirname, '/../index.html')); });
+app.get('/', (req, res) => { res.sendFile(path.join(__dirname, './app/index.html')); });
 
 app.use('/api', users);
-app.get('/*', (req, res) => { res.sendFile(path.join(__dirname, '/../index.html')); });
+
+app.get('/*', (req, res) => { res.sendFile(path.join(__dirname, './app/index.html')); });
 
 app.listen(port);
 

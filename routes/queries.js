@@ -5,9 +5,10 @@ const options = {
   promiseLib: promise,
 };
 
+const env = process.env.DATABASE_URL;
 const pgp = require('pg-promise')(options);
 const connectionString = 'postgres://localhost:5432/users';
-const db = pgp(connectionString);
+const db = pgp(env || connectionString);
 
 // add query functions
 function getAllUsers(req, res, next) {
