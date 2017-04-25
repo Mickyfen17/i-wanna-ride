@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'app'),
     filename: 'bundle.js',
-    publicPath: '/app/',
+    publicPath: '/assets/',
   },
   module: {
     loaders: [
@@ -26,7 +26,7 @@ module.exports = {
       { test: /\.scss$/, loader: 'style!css!sass' },
       {
         test: /\.(?:png|jpg|svg)$/,
-        loader: 'url-loader',
+        loader: 'url-loader?name=/images/[name].[ext]',
         query: {
           limit: 10000,
         },
