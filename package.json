@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm build && nodemon server.js",
     "build": "webpack --config ./webpack.prod.config.js",
+    "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
     "test": "jest"
   },
