@@ -6,7 +6,6 @@
   "scripts": {
     "start": "npm build && nodemon server.js",
     "build": "webpack --config ./webpack.prod.config.js",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
     "test": "jest"
   },
