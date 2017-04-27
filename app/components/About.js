@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Header from './Header';
 
@@ -24,6 +25,9 @@ const About = ({ signedIn }) => {
           which links them to the other riders information. Matched riders are then
           free to arrange a meet up.
         </p>
+        <Link to={ '/' } className='about-back-link' >
+          Back
+        </Link>
       </article>
     </div>
   );

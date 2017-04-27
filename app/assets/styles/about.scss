@@ -17,3 +17,19 @@
   }
 }
 
+.about-back-link {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  padding: 0 0 20px 0;
+  text-align: center;
+  color: #c1ef2d;
+  font-family: $main-header-font;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  &:hover {
+    color: #000;
+  }
+}
