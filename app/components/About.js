@@ -12,12 +12,17 @@ const About = ({ signedIn }) => {
       <article className='about-wrapper'>
         <h3 className='about-header'>ABOUT PAGE</h3>
         <p className='about-content'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Have you ever wanted to go out for a mountain bike ride but can't find
+          anyone you know to ride with?
+          Maybe you're at home or in a new place and you end up missing out on an
+          awesome ride because you don't want to ride alone. I Wanna Ride helps fix
+          this problem. It's an application that matches mountain bike riders who want
+          to ride the same trail at the same time. The app allows users to add the
+          date, time and location where they want to ride and then checks the system
+          for other riders with matching details.
+          Upon succesful match, users see a 'Match Found' button on their dashboard
+          which links them to the other riders information. Matched riders are then
+          free to arrange a meet up.
         </p>
       </article>
     </div>
