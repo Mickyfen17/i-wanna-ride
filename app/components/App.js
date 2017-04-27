@@ -15,7 +15,9 @@ const App = ({ user: { signedIn }, history }) => {
       <Route exact path='/' component={ Home } />
       <Route path='/login' component={ LoginContainer } />
       <Route path='/create-user' component={ CreateUserContainer } />
-      <Route path='/about' component={ About } />
+      <Route path='/about' render={() => (
+        <About signedIn={ signedIn } />
+      )}/>
       <Route path="/dashboard" render={() => (
         !signedIn ? (
           <Redirect to="/login"/>
