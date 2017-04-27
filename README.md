@@ -3,8 +3,8 @@
 ## Website Details
 
 [I Wanna Ride](https://i-wanna-ride.herokuapp.com/)
-* Default Username - mikefen
-* Default Password - password
+* **Default Username** - mikefen
+* **Default Password** - password
 
 ## Project Status
 
