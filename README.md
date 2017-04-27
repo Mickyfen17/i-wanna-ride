@@ -1,5 +1,11 @@
 ## I Wanna Ride
 
+## Website Details
+
+[I Wanna Ride](https://i-wanna-ride.herokuapp.com/)
+* **Default Username** - mikefen
+* **Default Password** - password
+
 ## Project Status
 
 Project is currently under development. Current functionality is;
