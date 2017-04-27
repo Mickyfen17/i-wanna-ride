@@ -2,9 +2,10 @@
   "name": "i-wanna-ride",
   "version": "1.0.0",
   "description": "Personal project for Module 3 at Turing School",
+  "main": "app/index.js",
   "scripts": {
     "start": "npm build && nodemon server.js",
-    "build": "webpack --config ./webpack.config.js",
+    "build": "webpack --config ./webpack.prod.config.js",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
     "test": "jest"
   },
