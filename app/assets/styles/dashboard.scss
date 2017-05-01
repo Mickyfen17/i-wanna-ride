@@ -42,6 +42,16 @@
   .ride-details {
     padding-left: 10px;
     text-align: left;
+    p {
+      margin: 5px 0;
+      &:first-child {
+        text-decoration: underline;
+      }
+    }
+    span {
+      color: #c1ef2d;
+      font-weight: 700;
+    }
   }
   .dash-welcome {
     width: 65%;
