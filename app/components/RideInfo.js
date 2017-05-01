@@ -108,7 +108,9 @@ export default class RideInfo extends Component {
       <tr className='ride-row'>
         { userModal }
         <td className='ride-col ride-details'>
-          { `${date} - ${time} - ${experience} - ${location}` }
+          <p>{ `${date} - ${time}` }</p>
+          <p><span>Level - </span>{ experience }</p>
+          <p><span>Location - </span>{ location }</p>
         </td>
         <td className='ride-col'>
           {
