@@ -3,6 +3,7 @@
 ## Website Details
 
 [I Wanna Ride](https://i-wanna-ride.herokuapp.com/)
+* **Create User & User sign in is not yet secure via OAuth. To test use the application, sign in with the below credentials.**
 * **Default Username** - mikefen
 * **Default Password** - password
 
@@ -47,9 +48,9 @@ Upcoming features;
 ## Installation and Setup Instructions
 
 * `git clone`
-* `create db` - if you don't have postgresSQl go install it here: http://postgresapp.com/
-* Follow the installation instructions for postgresSQl from website
-* Start postgresSQl server
+* `create db` - if you don't have postgresSQL go install it here: http://postgresapp.com/
+* Follow the installation instructions for postgresSQL from website
+* Start postgresSQL server
 * `npm install`
 * `npm start`
 
