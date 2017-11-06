@@ -3,16 +3,37 @@ import { connect } from 'react-redux';
 import CreateRide from '../components/CreateRide';
 import { userSignOut, addNewRide } from '../actions/actions';
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return state;
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     userSignOut: () => dispatch(userSignOut()),
-    addNewRide: (id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime) =>
-      dispatch(addNewRide(id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime)),
+    addNewRide: (
+      id,
+      firstname,
+      email,
+      location,
+      latitude,
+      longitude,
+      experience,
+      ridedate,
+      ridetime,
+    ) =>
+      dispatch(
+        addNewRide(
+          id,
+          firstname,
+          email,
+          location,
+          latitude,
+          longitude,
+          experience,
+          ridedate,
+          ridetime,
+        ),
+      ),
   };
 };
 

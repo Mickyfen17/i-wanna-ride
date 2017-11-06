@@ -12,7 +12,7 @@ const intialState = {
 
 const user = (state = intialState, action) => {
   switch (action.type) {
-    case 'USER_SIGNED_IN' :
+    case 'USER_SIGNED_IN':
       return Object.assign({}, state, action.user, { signedIn: true });
 
     default:

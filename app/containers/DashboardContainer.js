@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import Dashboard from '../components/Dashboard';
 import { userSignOut, fetchAllUserRides } from '../actions/actions';
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return state;
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     userSignOut: () => dispatch(userSignOut()),
     fetchAllUserRides: userID => dispatch(fetchAllUserRides(userID)),

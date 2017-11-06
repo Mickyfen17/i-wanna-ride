@@ -16,9 +16,15 @@ export default class RideInfo extends Component {
   }
 
   componentWillMount() {
-    const { userID, date, time, experience, location, fetchMatchedRides } = this.props;
-    fetchMatchedRides(userID, date, time, experience, location)
-    .then(json =>
+    const {
+      userID,
+      date,
+      time,
+      experience,
+      location,
+      fetchMatchedRides,
+    } = this.props;
+    fetchMatchedRides(userID, date, time, experience, location).then(json =>
       this.setState({
         matchedRides: [...json.data],
       }),
@@ -27,8 +33,7 @@ export default class RideInfo extends Component {
 
   deleteRide() {
     const { userID, rideID, deleteRideCall } = this.props;
-    deleteRideCall(userID, rideID)
-    .then(() => {
+    deleteRideCall(userID, rideID).then(() => {
       this.fetchUpdatedRides();
     });
   }
@@ -59,44 +64,41 @@ export default class RideInfo extends Component {
   matchedRideDetails() {
     const { showMatchDetails, matchedRides } = this.state;
     return (
-    <Modal
-      className='ride-match-modal'
-      isOpen={ showMatchDetails }
-      contentLabel='matched-rider-info'
-    >
-      <article className='ride-info-wrapper'>
-        <h1 className='modal-header'>Matched Riders</h1>
-        {
-          matchedRides.map((ride, i) =>
-            <div
-              key={ i }
-              className='ride-location'
-            >
-              <h2 className='modal-name'>{ ride.firstname }</h2>
-              <a href={`mailto:${ride.email}`} className='modal-email'>{ ride.email }</a>
-              <h2 className='modal-location'>{ ride.location }</h2>
+      <Modal
+        className="ride-match-modal"
+        isOpen={showMatchDetails}
+        contentLabel="matched-rider-info"
+      >
+        <article className="ride-info-wrapper">
+          <h1 className="modal-header">Matched Riders</h1>
+          {matchedRides.map((ride, i) => (
+            <div key={i} className="ride-location">
+              <h2 className="modal-name">{ride.firstname}</h2>
+              <a href={`mailto:${ride.email}`} className="modal-email">
+                {ride.email}
+              </a>
+              <h2 className="modal-location">{ride.location}</h2>
               <GoogleMapReact
-                center={ [parseFloat(ride.latitude, 10), parseFloat(ride.longitude, 10)] }
-                zoom={ 15 }
-                options={ this.createMapOptions }
-                >
-                  <MapMarker
-                    lat={ parseFloat(ride.latitude, 10) }
-                    lng={ parseFloat(ride.longitude, 10) }
-                    location={ ride.location}
-                  />
+                center={[
+                  parseFloat(ride.latitude, 10),
+                  parseFloat(ride.longitude, 10),
+                ]}
+                zoom={15}
+                options={this.createMapOptions}
+              >
+                <MapMarker
+                  lat={parseFloat(ride.latitude, 10)}
+                  lng={parseFloat(ride.longitude, 10)}
+                  location={ride.location}
+                />
               </GoogleMapReact>
-            </div>,
-          )
-        }
-        <button
-          className='close-modal-btn'
-          onClick={ this.toggleModal }
-        >
-          X
-        </button>
-      </article>
-    </Modal>
+            </div>
+          ))}
+          <button className="close-modal-btn" onClick={this.toggleModal}>
+            X
+          </button>
+        </article>
+      </Modal>
     );
   }
 
@@ -105,31 +107,34 @@ export default class RideInfo extends Component {
     const { date, time, experience, location } = this.props;
     const userModal = this.matchedRideDetails();
     return (
-      <tr className='ride-row'>
-        { userModal }
-        <td className='ride-col ride-details'>
-          <p>{ `${date} - ${time}` }</p>
-          <p><span>Level - </span>{ experience }</p>
-          <p><span>Location - </span>{ location }</p>
+      <tr className="ride-row">
+        {userModal}
+        <td className="ride-col ride-details">
+          <p>{`${date} - ${time}`}</p>
+          <p>
+            <span>Level - </span>
+            {experience}
+          </p>
+          <p>
+            <span>Location - </span>
+            {location}
+          </p>
         </td>
-        <td className='ride-col'>
-          {
-            matchedRides.length > 0 ?
-            <button
-              className='ride-match-button'
-              onClick={ this.toggleModal } >
+        <td className="ride-col">
+          {matchedRides.length > 0 ? (
+            <button className="ride-match-button" onClick={this.toggleModal}>
               Match Found
-            </button> :
+            </button>
+          ) : (
             <p>No Match</p>
-          }
+          )}
         </td>
-        <td className='ride-col'>
+        <td className="ride-col">
           <button
-            className='delete-ride-button'
-            onClick={ this.deleteRide }
-            alt='Delete Ride'
-          >
-          </button>
+            className="delete-ride-button"
+            onClick={this.deleteRide}
+            alt="Delete Ride"
+          />
         </td>
       </tr>
     );

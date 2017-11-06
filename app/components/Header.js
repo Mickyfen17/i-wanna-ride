@@ -1,30 +1,29 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-
 
 const Header = ({ signedIn, className, handleSignOut, history }) => {
   const signedInHeader = () => {
     const userPath = !signedIn ? '/' : '/dashboard';
     return (
-      <div className='nav'>
-        <Link to={ userPath } className={ className }>
+      <div className="nav">
+        <Link to={userPath} className={className}>
           I Wanna Ride
         </Link>
-        { signedIn &&
+        {signedIn && (
           <button
-            className='logout-button'
-            onClick={ () => { handleSignOut(); history.push('/'); } }>
+            className="logout-button"
+            onClick={() => {
+              handleSignOut();
+              history.push('/');
+            }}
+          >
             Logout
           </button>
-        }
+        )}
       </div>
     );
   };
-  return (
-    <div className='navbar'>
-      { signedInHeader() }
-    </div>
-  );
+  return <div className="navbar">{signedInHeader()}</div>;
 };
 
 export default Header;
