@@ -11,10 +11,12 @@
     "eol-last": [0],
     "no-mixed-requires": [0],
     "no-underscore-dangle": [0],
+    "react/jsx-uses-react": ["error"],
+    "react/jsx-uses-vars": ["error"],
     "prettier/prettier": [
       "error",
       { "singleQuote": true, "trailingComma": "all", "bracketSpacing": true }
     ]
   },
-  "plugins": ["prettier"]
+  "plugins": ["prettier", "react"]
 }
