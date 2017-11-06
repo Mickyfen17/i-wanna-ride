@@ -8,7 +8,15 @@
     "build": "webpack --config ./webpack.prod.config.js",
     "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
-    "test": "jest"
+    "test": "jest",
+    "pretty": "prettier --write --single-quote --trailing-comma all \"app/**/*.js\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run pretty",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -42,8 +50,10 @@
     "eslint-plugin-react": "^6.10.0",
     "fetch-mock": "^5.9.4",
     "file-loader": "^0.11.1",
+    "husky": "^0.14.3",
     "jest": "^19.0.2",
     "jsdom": "^9.11.0",
+    "lint-staged": "^4.3.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.4.2",
     "nodemon": "^1.11.0",
