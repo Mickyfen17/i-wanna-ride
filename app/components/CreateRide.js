@@ -38,22 +38,36 @@ export default class CreateRide extends Component {
 
   handleEmptyInputs() {
     const keys = Object.keys(this.state);
-    return keys.some(key =>
-      key !== 'error' && this.state[key] === '',
-    );
+    return keys.some(key => key !== 'error' && this.state[key] === '');
   }
 
   handleNewRide() {
     const { user: { id, firstname, email }, addNewRide, history } = this.props;
-    const { location, latitude, longitude, experience, ridedate, ridetime } = this.state;
-    if(this.handleEmptyInputs()) {
+    const {
+      location,
+      latitude,
+      longitude,
+      experience,
+      ridedate,
+      ridetime,
+    } = this.state;
+    if (this.handleEmptyInputs()) {
       this.setState({
-        error: 'Input field empty'
-      })
+        error: 'Input field empty',
+      });
       return;
     }
-    addNewRide(id, firstname, email, location, latitude, longitude, experience, ridedate, ridetime)
-    .then(() => {
+    addNewRide(
+      id,
+      firstname,
+      email,
+      location,
+      latitude,
+      longitude,
+      experience,
+      ridedate,
+      ridetime,
+    ).then(() => {
       history.push('/dashboard');
     });
   }
@@ -61,25 +75,22 @@ export default class CreateRide extends Component {
     const { experience, ridedate, ridetime, error } = this.state;
     const { user: { signedIn }, userSignOut, history } = this.props;
     return (
-      <div className='create-ride'>
+      <div className="create-ride">
         <Header
-          className={ 'signed-in-header' }
-          signedIn={ signedIn }
-          handleSignOut={ userSignOut }
-          history={ history }
+          className={'signed-in-header'}
+          signedIn={signedIn}
+          handleSignOut={userSignOut}
+          history={history}
         />
-        <div className='form-wrapper'>
-          <article className='create-ride-card'>
+        <div className="form-wrapper">
+          <article className="create-ride-card">
             <h1>CREATE RIDE</h1>
-            <PlacesSearch
-              name='location'
-              handleChange={ this.handleLocation }
-            />
+            <PlacesSearch name="location" handleChange={this.handleLocation} />
             <select
-              className='user-input select-input'
-              name='experience'
-              value={ experience }
-              onChange={ this.handleUserInput }
+              className="user-input select-input"
+              name="experience"
+              value={experience}
+              onChange={this.handleUserInput}
             >
               <option value="Beginner">Beginner</option>
               <option value="Intermediate">Intermediate</option>
@@ -87,31 +98,29 @@ export default class CreateRide extends Component {
               <option value="Expert">Expert</option>
             </select>
             <Input
-              className='user-input'
-              placeholder='Date'
-              type='date'
-              name='ridedate'
-              value={ ridedate }
-              handleChange={ this.handleUserInput }
+              className="user-input"
+              placeholder="Date"
+              type="date"
+              name="ridedate"
+              value={ridedate}
+              handleChange={this.handleUserInput}
             />
             <select
-              className='user-input select-input'
-              name='ridetime'
-              value={ ridetime }
-              onChange={ this.handleUserInput }
+              className="user-input select-input"
+              name="ridetime"
+              value={ridetime}
+              onChange={this.handleUserInput}
             >
               <option value="Morning">Morning</option>
               <option value="Afternoon">Afternoon</option>
               <option value="Evening">Evening</option>
             </select>
-            <button
-              className='submit-button'
-              onClick={ this.handleNewRide }>
+            <button className="submit-button" onClick={this.handleNewRide}>
               Submit
             </button>
-            { error !== '' && <h4 className='error-text'>{ error }</h4> }
+            {error !== '' && <h4 className="error-text">{error}</h4>}
           </article>
-          <Link to={ '/dashboard' } className='dashboard-back-link' >
+          <Link to={'/dashboard'} className="dashboard-back-link">
             Back
           </Link>
         </div>

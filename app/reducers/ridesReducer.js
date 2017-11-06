@@ -1,6 +1,6 @@
 const rides = (state = [], action) => {
   switch (action.type) {
-    case 'FETCH_USER_RIDES' :
+    case 'FETCH_USER_RIDES':
       return [...action.rides];
 
     default:
