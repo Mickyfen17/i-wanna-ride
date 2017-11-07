@@ -41,12 +41,7 @@ export default class Dashboard extends Component {
     }
   }
   render() {
-    const {
-      user: { signedIn, firstname },
-      rides,
-      userSignOut,
-      history,
-    } = this.props;
+    const { user: { signedIn, firstname }, rides, userSignOut, history } = this.props;
     const userRides = this.displayUserRides();
     const addNewRide = this.addNewRide();
     return (

@@ -13,14 +13,9 @@ import styles from './assets/styles/main';
 import AppContainer from './containers/AppContainer';
 
 const history = createHistory();
-const devTools =
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const middleware = routerMiddleware(history);
-const store = createStore(
-  rootReducer,
-  devTools,
-  applyMiddleware(middleware, logger, thunk),
-);
+const store = createStore(rootReducer, devTools, applyMiddleware(middleware, logger, thunk));
 
 const router = (
   <Provider store={store}>

@@ -42,15 +42,7 @@ export default class CreateUser extends Component {
 
   handleUserCreate() {
     const { createNewUserFetch, history } = this.props;
-    const {
-      firstname,
-      lastname,
-      location,
-      experience,
-      email,
-      username,
-      password,
-    } = this.state;
+    const { firstname, lastname, location, experience, email, username, password } = this.state;
     if (!this.validateEmail(email)) {
       this.setState({
         error: 'Please enter a valid email',
@@ -70,7 +62,7 @@ export default class CreateUser extends Component {
       experience,
       email,
       username,
-      password,
+      password
     ).then(() => {
       history.push('/dashboard');
     });
@@ -82,15 +74,7 @@ export default class CreateUser extends Component {
   }
 
   render() {
-    const {
-      firstname,
-      lastname,
-      experience,
-      email,
-      username,
-      password,
-      error,
-    } = this.state;
+    const { firstname, lastname, experience, email, username, password, error } = this.state;
     const { user: { signedIn } } = this.props;
     return (
       <div>

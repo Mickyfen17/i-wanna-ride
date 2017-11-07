@@ -16,18 +16,11 @@ export default class RideInfo extends Component {
   }
 
   componentWillMount() {
-    const {
-      userID,
-      date,
-      time,
-      experience,
-      location,
-      fetchMatchedRides,
-    } = this.props;
+    const { userID, date, time, experience, location, fetchMatchedRides } = this.props;
     fetchMatchedRides(userID, date, time, experience, location).then(json =>
       this.setState({
         matchedRides: [...json.data],
-      }),
+      })
     );
   }
 
@@ -79,10 +72,7 @@ export default class RideInfo extends Component {
               </a>
               <h2 className="modal-location">{ride.location}</h2>
               <GoogleMapReact
-                center={[
-                  parseFloat(ride.latitude, 10),
-                  parseFloat(ride.longitude, 10),
-                ]}
+                center={[parseFloat(ride.latitude, 10), parseFloat(ride.longitude, 10)]}
                 zoom={15}
                 options={this.createMapOptions}
               >
@@ -130,11 +120,7 @@ export default class RideInfo extends Component {
           )}
         </td>
         <td className="ride-col">
-          <button
-            className="delete-ride-button"
-            onClick={this.deleteRide}
-            alt="Delete Ride"
-          />
+          <button className="delete-ride-button" onClick={this.deleteRide} alt="Delete Ride" />
         </td>
       </tr>
     );

@@ -19,20 +19,12 @@ const App = ({ user: { signedIn }, history }) => {
       <Route
         path="/dashboard"
         render={() =>
-          !signedIn ? (
-            <Redirect to="/login" />
-          ) : (
-            <DashboardContainer history={history} />
-          )}
+          !signedIn ? <Redirect to="/login" /> : <DashboardContainer history={history} />}
       />
       <Route
         path="/create-ride"
         render={() =>
-          !signedIn ? (
-            <Redirect to="/login" />
-          ) : (
-            <CreateRideContainer history={history} />
-          )}
+          !signedIn ? <Redirect to="/login" /> : <CreateRideContainer history={history} />}
       />
       <Footer />
     </div>

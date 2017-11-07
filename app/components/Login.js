@@ -79,10 +79,7 @@ export default class Login extends Component {
               name="password"
               handleChange={this.handleUserInput}
             />
-            <button
-              className="submit-button"
-              onClick={() => this.handleUserSubmit()}
-            >
+            <button className="submit-button" onClick={() => this.handleUserSubmit()}>
               Login
             </button>
             {error !== '' && <h4 className="error-text">{error}</h4>}

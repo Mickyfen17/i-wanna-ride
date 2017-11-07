@@ -1,10 +1,6 @@
 import 'whatwg-fetch';
 
-import {
-  USER_SIGNED_IN,
-  USER_SIGNED_OUT,
-  FETCH_USER_RIDES,
-} from './action_types';
+import { USER_SIGNED_IN, USER_SIGNED_OUT, FETCH_USER_RIDES } from './action_types';
 
 export const userSignIn = user => {
   return {
@@ -42,7 +38,7 @@ export const createNewUserFetch = (
   experience,
   email,
   username,
-  password,
+  password
 ) => {
   return dispatch =>
     fetch('/api/users/new', {
@@ -71,7 +67,7 @@ export const addNewRide = (
   longitude,
   experience,
   ridedate,
-  ridetime,
+  ridetime
 ) => {
   return () =>
     fetch('/api/rides/new', {

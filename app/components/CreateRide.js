@@ -43,14 +43,7 @@ export default class CreateRide extends Component {
 
   handleNewRide() {
     const { user: { id, firstname, email }, addNewRide, history } = this.props;
-    const {
-      location,
-      latitude,
-      longitude,
-      experience,
-      ridedate,
-      ridetime,
-    } = this.state;
+    const { location, latitude, longitude, experience, ridedate, ridetime } = this.state;
     if (this.handleEmptyInputs()) {
       this.setState({
         error: 'Input field empty',
@@ -66,7 +59,7 @@ export default class CreateRide extends Component {
       longitude,
       experience,
       ridedate,
-      ridetime,
+      ridetime
     ).then(() => {
       history.push('/dashboard');
     });

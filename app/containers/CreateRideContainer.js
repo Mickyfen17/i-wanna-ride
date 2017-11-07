@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
       longitude,
       experience,
       ridedate,
-      ridetime,
+      ridetime
     ) =>
       dispatch(
         addNewRide(
@@ -31,8 +31,8 @@ const mapDispatchToProps = dispatch => {
           longitude,
           experience,
           ridedate,
-          ridetime,
-        ),
+          ridetime
+        )
       ),
   };
 };
