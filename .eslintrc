@@ -8,15 +8,17 @@
   },
   "rules": {
     "quotes": [2, "single"],
+    "comma-dangle": ["error", { "objects": "never" }],
     "eol-last": [0],
     "no-mixed-requires": [0],
     "no-underscore-dangle": [0],
     "arrow-body-style": [0],
     "react/jsx-uses-react": ["error"],
     "react/jsx-uses-vars": ["error"],
+    "arrow-parens": ["error", "as-needed"],
     "prettier/prettier": [
       "error",
-      { "singleQuote": true, "trailingComma": "all", "bracketSpacing": true }
+      { "singleQuote": true, "trailingComma": "es5", "bracketSpacing": true, "printWidth": 100 }
     ]
   },
   "plugins": ["prettier", "react"]
