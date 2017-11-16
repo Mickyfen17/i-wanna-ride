@@ -5,7 +5,7 @@ describe('The Home Page', () => {
 });
 
 describe('Home Page', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('http://localhost:3000');
   });
 
@@ -25,12 +25,40 @@ describe('Home Page', () => {
       .should('contain', 'About');
   });
 
-  it('Check home page button interations', () => {
+  it('Check Home page Login / Sign Up button interation', () => {
     cy
       .get('button.home-page-button')
       .first()
       .click();
 
     cy.get('article.login-card').should('have.length', 1);
+  });
+
+  it('Check Home page About button interation', () => {
+    cy
+      .get('button.home-page-button')
+      .last()
+      .click();
+
+    cy.get('.about-wrapper').should('have.length', 1);
+  });
+
+  it('Check Home page About Back button interation', () => {
+    cy
+      .get('button.home-page-button')
+      .last()
+      .click();
+
+    cy
+      .get('a.about-back-link')
+      .should('have.length', 1)
+      .click();
+
+    cy
+      .get('h1.home-page-header')
+      .should('have.length', 1)
+      .and('have.text', 'I Wanna Ride');
+    cy.get('h3.home-page-caption').should('have.length', 1);
+    cy.get('button.home-page-button').should('have.length', 2);
   });
 });
